@@ -121,7 +121,7 @@ const productos = [
 productos.forEach((prod) => {
   const card = document.getElementById("prod_list");
   card.innerHTML += `
- <a class="card" href="./product-page.html">
+ <a class="card" href="/shop/item">
  <img src="${prod.img1}" alt="${prod.nombre}" />
  <h4 class="card_cat">${prod.categoria}</h4>
  <h3 class="card_name">${prod.nombre}</h3>
