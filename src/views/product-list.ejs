@@ -16,32 +16,7 @@
 <body>
     <!-- HEADER -->
 
-    <header class="container">
-        <div class="nav">
-            <input type="checkbox" id="nav-check">
-            <div class="nav-header">
-                <div class="nav-title">
-                    <a href="/home"><img src="../multimedia/branding/logo_light_horizontal.svg" alt=""></a>
-                </div>
-            </div>
-            <div class="nav-btn">
-                <label for="nav-check">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </label>
-            </div>
-            <div class="nav-links">
-                <a href="/shop">SHOP</a>
-                <a href="#">CONTACTO</a>
-                <a href="#">LOGIN</a>
-                <a href="/shop/cart" class="link_cart"><img src="../multimedia/icons/cart-icon.svg" alt="cart" /></a>
-            </div>
-        </div>
-
-    </header>
-
-
+    <%- include("partials/header") %>
 
     <section class="product_list">
         <aside class="filtros">
@@ -102,17 +77,7 @@
     </div>
 
     <!-- FOOTER -->
-    <footer>
-        <div class="footer_div">
-            <ul>
-                <li>SHOP</li>
-                <li>INGRESAR</li>
-                <li>CONTACTO</li>
-            </ul>
-            <img src="../multimedia/branding/isotype.svg" alt="funkoshop" />
-        </div>
-        <p>All rights reserved 2023 - Funkoshop &copy;</p>
-    </footer>
+    <%- include("partials/footer") %>
 
     <script src="../js/shop.js"></script>
 </body>
