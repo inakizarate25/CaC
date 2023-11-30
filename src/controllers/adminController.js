@@ -12,7 +12,9 @@ const create = (req, res) => {
 
 const postCreate = (req, res) => {
   console.log(req.body);
+  const originalname = req.file.originalname;
   const errors = validationResult(req);
+  const buffer = req.file.buffer;
   if (!errors.isEmpty()) {
     return res.render("admin/create", {
       values: req.body,
@@ -20,14 +22,14 @@ const postCreate = (req, res) => {
     });
   }
   if (req.file) {
-    console.log(req.body, req.file, req.file.buffer);
-    sharp(req.file.buffer)
+    console.log(req.body, req.file, buffer);
+    sharp(buffer)
       .resize(300)
       .toFile(
         path.resolve(
           __dirname,
           "../../public/multimedia/uploads/",
-          req.file.originalname
+          originalname
         )
       );
   }

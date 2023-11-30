@@ -6,6 +6,7 @@ const upload = multer({ storage: multer.memoryStorage() });
 const { body } = require("express-validator");
 
 const validations = [
+  // nombre
   body("nombre")
     .not()
     .isEmpty()
@@ -13,6 +14,29 @@ const validations = [
     .bail()
     .isLength({ min: 3 })
     .withMessage("Tiene que Tener 3 Caracteres"),
+  // descripcion
+  body("descripcion")
+    .not()
+    .isEmpty()
+    .withMessage("La descripción es obligatoria"),
+  // sku
+  body("sku").not().isEmpty().withMessage("El SKU es obligatorio"),
+  // stock
+  body("stock")
+    .not()
+    .isEmpty()
+    .withMessage("El Stock es obligatorio")
+    .bail()
+    .isNumeric()
+    .withMessage("El StockTiene que ser un numero"),
+  // precio
+  body("precio")
+    .not()
+    .isEmpty()
+    .withMessage("El Precio es obligatorio")
+    .bail()
+    .isNumeric()
+    .withMessage("El Precio tiene que ser un numero"),
 ];
 
 router.get("/", adminController.admin);

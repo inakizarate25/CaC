@@ -1255,3 +1255,17 @@ label {
     justify-content: space-between;
     width: 100%;
 }
+
+
+/* errores */
+.errors {
+    color: #2e2c2c;
+    font-size: 18px;
+    font-weight: 500;
+    align-self: flex-start;
+}
+
+.title-errors {
+    color: #FF3333;
+    font-size: 24px;
+}

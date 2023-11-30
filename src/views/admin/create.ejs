@@ -17,39 +17,54 @@
             <form class="form-create" action="create" method="post" enctype="multipart/form-data">
 
                 <h2 class="title-create">CREAR NUEVO ITEM</h2>
-                <!-- <div class="div-form">
+                <div class="div-form">
+                    <!-- CATEGORIAS -->
                     <label for="categoria">Categoria: <select name="categoria" id="categoria" placeholder="CATEGORIA"
                             class="select-categoria"></select></label>
 
+                    <!-- LICENCIAS -->
                     <label for="licencia">Licencia: <select name="licencia" id="licencia" placeholder="LICENCIA"
                             class="select-licencia"></select></label>
 
                 </div>
                 <div class="div-form">
+                    <!-- NOMBRES -->
                     <label for="nombre">Nombre del producto:</label>
-                    <input type="text" id="nombre" placeholder="NOMBRE DEL PRODUCTO" class="input-nombre" />
+                    <input type="text" placeholder="NOMBRE DEL PRODUCTO" id="nombre" name="nombre"
+                        value="<%= typeof values != 'undefined' ? values.nombre : ''%>">
                 </div>
-                <textarea name="descrip" id="descripcion" cols="30" rows="10"
+                <!-- DESC -->
+                <textarea name="descripcion" id="descripcion" cols="30" rows="10"
                     placeholder="Descripcion del producto"></textarea>
 
                 <div class="div-form2">
-                    <label for="sku">SKU: <input type="text" id="sku" placeholder="SKU" class="input-sku" /></label>
-                    <label for="stock">Stock: <input type="text" id="stock" placeholder="STOCK"
-                            class="input-stock" /></label>
+                    <!-- SKU -->
+                    <label for="sku">SKU: <input type="text" id="sku" placeholder="SKU" class="input-sku"
+                            name="sku" /></label>
 
-                    <label for="precio">Precio: <input type="text" id="precio" placeholder="PRECIO"
-                            class="input-precio" /></label>
+                    <!-- STOCK -->
+                    <label for="stock">Stock: <input type="text" id="stock" placeholder="STOCK" class="input-stock"
+                            name="stock" /></label>
+
+                    <!-- PRECIO -->
+                    <label for="precio">Precio: <input type="number" id="precio" placeholder="PRECIO"
+                            class="input-precio" name="precio" /></label>
+
+                    <!-- DESCUENTO -->
                     <label for="descuento">Descuento: <input type="text" id="descuento" placeholder="DESCUENTO"
                             class="input-descuento" /></label>
+
+                    <!-- CUOTAS -->
                     <label for="cuotas">Cuotas: <select name="cuotas" id="cuotas"></select></label>
 
-                </div> -->
+                </div>
                 <!-- imgs -->
                 <div class="imgs">
-                    <input type="text" placeholder="nombre" id="nombre" name="nombre"
-                        value="<%= typeof values != 'undefined' ? values.nombre : ''%>">
+
                     <label for="imagenes">Imagenes:</label>
                     <input type="file" id="imagen" placeholder="Elegir archivox" name="imagen" accept="image/*" />
+
+
 
                 </div>
                 <div class="botones">
@@ -60,7 +75,8 @@
 
 
             <% if (typeof errors !="undefined" ) { %>
-                <ul>
+                <ul class="errors">
+                    <p class="title-errors">Errores</p>
                     <% errors.forEach(error=> { %>
                         <li>
                             <%= error.msg %>
