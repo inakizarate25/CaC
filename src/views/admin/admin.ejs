@@ -6,49 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../multimedia/branding/isotype.svg" type="image/x-icon">
     <link rel="stylesheet" href="/css/styles.css">
-    <title>Cart</title>
+    <title>Admin</title>
 </head>
 
 <body>
     <!-- HEADER -->
-    <%- include("../partials/admin/header-admin") %>
+    <%- include("../partials/admin/header-admin.ejs") %>
+        <section class="admin">
+            <div class="search">
 
-    <section class="admin">
-        <div class="search">
-
-            <input type="text" placeholder="codigo, nombre o categoria" id="search">
-        </div>
-        <div class="title">
-            <h2>LISTADO DE PRODUCTOS</h2>
-            <div>
-                <h3>AGREGAR</h3>
-                <button>+</button>
+                <input type="text" placeholder="codigo, nombre o categoria" id="search">
             </div>
-        </div>
+            <div class="title">
+                <h2>LISTADO DE PRODUCTOS</h2>
+                <div>
+                    <h3>AGREGAR</h3>
+                    <button>+</button>
+                </div>
+            </div>
 
-        <table class="table-fill">
-            <thead>
-                <tr>
-                    <th class="text-left">Id</th>
-                    <th class="text-left">Codigo</th>
-                    <th class="text-left">Nombre del producto</th>
-                    <th class="text-left">Categoria</th>
-                    <th class="text-left">Editar</th>
-                </tr>
-            </thead>
-            <tbody class="table-hover" id="table-body">
+            <table class="table-fill">
+                <thead>
+                    <tr>
+                        <th class="text-left">Id</th>
+                        <th class="text-left">Codigo</th>
+                        <th class="text-left">Nombre del producto</th>
+                        <th class="text-left">Categoria</th>
+                        <th class="text-left">Editar</th>
+                    </tr>
+                </thead>
+                <tbody class="table-hover" id="table-body">
 
+                </tbody>
+            </table>
+        </section>
 
-
-
-            </tbody>
-        </table>
-    </section>
-
-    <!-- FOOTER -->
-    <%- include("../partials/admin/footer-admin") %>
-
-    <script src="../js/admin.js"></script>
+        <!-- FOOTER -->
+        <%- include("../partials/admin/footer-admin.ejs") %>
+            <script src="../js/admin.js"></script>
 </body>
 
 </html>

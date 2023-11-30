@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../multimedia/branding/isotype.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Cart</title>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <%- include("../partials/header") %>
+
+        <section class="cart">
+            <h2>CARRITO DE COMPRAS</h2>
+            <div class="cart_header">
+                <span>DETALLE DEL PRODUCTO</span>
+                <span>CANTIDAD</span>
+                <span>TOTAL</span>
+            </div>
+        </section>
+
+        <section class="cart_list">
+            <!-- cart_item -->
+            <div class="cart_item">
+                <div class="item_info">
+                    <img src="../multimedia/star-wars/baby-yoda-1.webp" alt="baby-yoda-1">
+
+                    <div class="info_div">
+                        <h3>BABY YODA BLUEBALL</h3>
+                        <span class="info_cat">STAR WARS</span>
+                        <span class="info_span_precio">Precio: $1799,99</span>
+                    </div>
+                </div>
+
+                <div class="item_cant">
+                    <span class="item_cant_span">2</span>
+                    <div class="cant_div">
+                        <p>+</p>
+                        <p>-</p>
+                    </div>
+                </div>
+
+                <div class="item_total">$3599,98</div>
+
+                <img src="../multimedia/icons/gg_close-o.svg" alt="delete" class="item_remove">
+            </div>
+            <!-- ---- -->
+            <div class="cart_item">
+                <div class="item_info">
+                    <img src="../multimedia/pokemon/pidgeotto-1.webp" alt="pidgeotto">
+
+                    <div class="info_div">
+                        <h3>PIDGEOTTO</h3>
+                        <span class="info_cat">POKEMON</span>
+                        <span class="info_span_precio">Precio: $1799,99</span>
+                    </div>
+                </div>
+
+                <div class="item_cant">
+                    <span class="item_cant_span">1</span>
+                    <div class="cant_div">
+                        <p>+</p>
+                        <p>-</p>
+                    </div>
+                </div>
+
+                <div class="item_total">$1799,99</div>
+
+                <img src="../multimedia/icons/gg_close-o.svg" alt="delete" class="item_remove">
+            </div>
+        </section>
+
+        <aside class="resumen_aside">
+            <h3>RESUMEN</h3>
+
+            <div class="resumen">
+                <span class="resumen_cant">
+                    <h5>CANTIDAD DE ELEMENTOS</h5>
+                    <p>3</p>
+                </span>
+                <span class="subtotal">
+                    <h5>SUBTOTAL</h5>
+                    <p>$3599,98</p>
+                </span>
+                <span class="envio">
+                    <h5>ENVIO</h5>
+                    <p>$0,00</p>
+                </span>
+                <span class="total">
+                    <h5>TOTAL</h5>
+                    <p>$3599,98</p>
+                </span>
+            </div>
+            <button class="pagar">IR A PAGAR</button>
+        </aside>
+
+        <!-- FOOTER -->
+        <%- include("../partials/footer") %>
+</body>
+
+</html>

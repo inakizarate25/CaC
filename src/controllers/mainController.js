@@ -1,19 +1,19 @@
 const path = require("path");
 
 const index = (req, res) => {
-  res.render(path.resolve(__dirname, "../views/index"));;
+  res.render(path.resolve(__dirname, "../views/main/index.ejs"));
 };
 
 const contact = (req, res) => {
-    res.render(path.resolve(__dirname, "../views/contact"));;
+  res.send("contact page");
 };
 
 const about = (req, res) => {
-    res.render(path.resolve(__dirname, "../views/about"));;
+  res.send("about page");
 };
 
 const faqs = (req, res) => {
-    res.render(path.resolve(__dirname, "../views/faqs"));;
+  res.send("faqs page");
 };
 
 module.exports = {

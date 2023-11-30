@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../multimedia/branding/isotype.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <%- include("../partials/header.ejs") %>
+
+        <section class="admin">
+            <h2>INGRESAR A MI CUENTA</h2>
+
+            <form class="login-form">
+                <label for="user">Usuario: <input type="text" placeholder="Usuario"></label>
+                <label for="pass">Contraseña: <input type="password" placeholder="Contraseña"></label>
+                <div class="botones">
+                    <input type="submit" value="Ingresar" class="btn-ingresar" />
+
+                    <label for="remember" class="remember">Recordarme: <input type="checkbox" name="remember"></label>
+                </div>
+                <a class="olvide" href="/">Olvide mi contraseña</a>
+            </form>
+
+        </section>
+
+        <!-- FOOTER -->
+        <%- include("../partials/footer.ejs") %>
+
+            <script src="../js/admin.js"></script>
+</body>
+
+</html>

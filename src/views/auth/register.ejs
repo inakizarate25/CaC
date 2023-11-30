@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../multimedia/branding/isotype.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Register</title>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <%- include("../partials/header.ejs") %>
+        <section class="admin">
+            <h2 class="title1">CREA TU CUENTA</h2>
+            <h3 class="subtitle">Completa el formulario para ser parte del mundo de los Funkos</h3>
+
+            <form class="register-form">
+                <label class="label-register">Nombre: <input type="text" name="nombre" placeholder="Nombre"
+                        id=""></label>
+                <label class="label-register">Apellidos: <input type="text" name="apellidos" placeholder="Apellidos"
+                        id=""></label>
+                <label class="label-register">Email: <input type="email" name="email" placeholder="Email" id=""></label>
+                <label class="label-register">Contraseña: <input type="password" name="contraseña"
+                        placeholder="Contraseña" id=""></label>
+                <label class="label-register">Repetir Contraseña: <input type="password" name="contraseña"
+                        placeholder="Contraseña" id=""></label>
+                <div class="botones">
+                    <input type="submit" value="Registrarse" class="btn-ingresar" />
+
+                    <label for="remember" class="remember">Acepto terminos y condiciones<input type="checkbox"
+                            name="remember"></label>
+                </div>
+            </form>
+
+        </section>
+
+        <!-- FOOTER -->
+        <%- include("../partials/footer.ejs") %>
+            <script src="../js/admin.js"></script>
+</body>
+
+</html>

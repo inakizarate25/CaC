@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/multimedia/branding/isotype.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>FunkoShop</title>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <%- include("../partials/header") %>
+        <!-- BANNER -->
+        <section class="banner">
+            <img class="banner_img" src="./multimedia/funkos-banner.webp" alt="funkos">
+            <div class="banner_hero">
+                <h2>Nuevos Ingresos</h2>
+                <span>Descubri el proximo Funko Pop de tu coleccion</span>
+                <a href="/shop">SHOP</a>
+            </div>
+        </section>
+
+        <!-- MAIN -->
+        <main>
+            <!-- star wars -->
+            <div class="colection">
+                <div class="colection_div">
+                    <h3>STAR WARS &</h3>
+                    <h3>THE MANDALORIAN</h3>
+                    <span>Disfruta de una saga que sigue agregando personajes a su colección.</span>
+                    <a>VER COLECCIÓN</a>
+                </div>
+                <img src="./multimedia/star-wars/baby-yoda-1.webp" alt="baby-yoda-1">
+            </div>
+
+            <!-- pokemon -->
+            <div class="colection colection_2">
+                <div class="colection_div">
+                    <h3>POKEMON INDIGO</h3>
+                    <span>Atrapa todos los que puedas y disfruta de una colección llena de amigos.</span>
+                    <a>VER COLECCIÓN</a>
+                </div>
+                <img src="./multimedia/pokemon/vulpix-1.webp">
+            </div>
+
+            <!-- harry potter -->
+            <div class="colection">
+                <div class="colection_div">
+                    <h3>HARRY POTTER</h3>
+                    <span>Revive los recuerdos de una saga llena de magia y encanto.</span>
+                    <a>VER COLECCIÓN</a>
+                </div>
+                <img src="./multimedia/harry-potter/snape-patronus-1.webp">
+            </div>
+        </main>
+
+        <!-- NOVEDADES -->
+        <section class="novedades">
+            <h2>ÚLTIMOS LANZAMIENTOS</h2>
+
+            <div class="novedades_div">
+                <!-- trooper -->
+                <a class="card">
+                    <img src="./multimedia/star-wars/trooper-1.webp" alt="trooper">
+                    <h4 class="card_cat">STAR WARS</h4>
+                    <H3 class="card_name">STORMTROOPER LIGHTSABER</H3>
+                    <span class="card_price">$1799,99</span>
+                    <p class="card_cuotas">3 CUOTAS SIN INTERES</p>
+                    <p class="nuevo">NUEVO</p>
+                </a>
+
+                <!-- pidgeotto -->
+                <a class="card">
+                    <img src="./multimedia/pokemon/pidgeotto-1.webp" alt="pidgeoto">
+                    <h4 class="card_cat">POKEMON</h4>
+                    <H3 class="card_name">PIDGEOTTO</H3>
+                    <span class="card_price">$1799,99</span>
+                    <p class="card_cuotas">3 CUOTAS SIN INTERES</p>
+                    <p class="nuevo">NUEVO</p>
+                </a>
+
+                <!-- luna -->
+                <a class="card">
+                    <img src="./multimedia/harry-potter/luna-1.webp" alt="trooper">
+                    <h4 class="card_cat">HARRY POTTER</h4>
+                    <H3 class="card_name">LUNA LOVEGOOD LION MASK</H3>
+                    <span class="card_price">$1799,99</span>
+                    <p class="card_cuotas">3 CUOTAS SIN INTERES</p>
+                    <p class="nuevo">NUEVO</p>
+                </a>
+            </div>
+        </section>
+
+
+        <!-- FOOTER -->
+        <%- include("../partials/footer") %>
+</body>
+
+</html>
