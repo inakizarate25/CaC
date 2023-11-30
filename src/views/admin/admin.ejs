@@ -36,14 +36,30 @@
                     </tr>
                 </thead>
                 <tbody class="table-hover" id="table-body">
-
+                    <% items.map((item)=>{%>
+                        <tr>
+                            <td class="text-left">
+                                <%= item.product_id %>
+                            </td>
+                            <td class="text-left">
+                                <%= item.product_sku %>
+                            </td>
+                            <td class="text-left">
+                                <%= item.product_name %>
+                            </td>
+                            <td class="text-left">
+                                <%= item.licence_name %>
+                            </td>
+                            <td class="text-left"><button>Editar</button></td>
+                            <td class="text-left"><button>Eliminar</button></td>
+                        </tr>
+                        <% }) %>
                 </tbody>
             </table>
         </section>
 
         <!-- FOOTER -->
         <%- include("../partials/admin/footer-admin.ejs") %>
-            <script src="../js/admin.js"></script>
 </body>
 
 </html>

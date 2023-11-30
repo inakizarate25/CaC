@@ -1,7 +1,8 @@
 const path = require("path");
+const items = require("../../data.json");
 
 const index = (req, res) => {
-  res.render(path.resolve(__dirname, "../views/main/index.ejs"));
+  res.render(path.resolve(__dirname, "../views/main/index.ejs"), { items });
 };
 
 const contact = (req, res) => {

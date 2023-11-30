@@ -288,7 +288,7 @@ main {
     padding: 0 110px;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -300,6 +300,8 @@ main {
 
 .novedades_div {
     width: 100%;
+    max-width: 1440px;
+    overflow-x: scroll;
     display: flex;
     align-items: center;
     justify-content: center;

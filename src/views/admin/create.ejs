@@ -14,9 +14,10 @@
     <%- include("../partials/admin/header-admin.ejs") %>
 
         <section class="admin">
-            <form class="form-create">
+            <form class="form-create" action="create" method="post" enctype="multipart/form-data">
+
                 <h2 class="title-create">CREAR NUEVO ITEM</h2>
-                <div class="div-form">
+                <!-- <div class="div-form">
                     <label for="categoria">Categoria: <select name="categoria" id="categoria" placeholder="CATEGORIA"
                             class="select-categoria"></select></label>
 
@@ -33,26 +34,23 @@
 
                 <div class="div-form2">
                     <label for="sku">SKU: <input type="text" id="sku" placeholder="SKU" class="input-sku" /></label>
-
                     <label for="stock">Stock: <input type="text" id="stock" placeholder="STOCK"
                             class="input-stock" /></label>
 
                     <label for="precio">Precio: <input type="text" id="precio" placeholder="PRECIO"
                             class="input-precio" /></label>
-
                     <label for="descuento">Descuento: <input type="text" id="descuento" placeholder="DESCUENTO"
                             class="input-descuento" /></label>
-
                     <label for="cuotas">Cuotas: <select name="cuotas" id="cuotas"></select></label>
 
-                </div>
+                </div> -->
+                <!-- imgs -->
                 <div class="imgs">
-
+                    <input type="text" placeholder="nombre" id="nombre" name="nombre"
+                        value="<%= typeof values != 'undefined' ? values.nombre : ''%>">
                     <label for="imagenes">Imagenes:</label>
-                    <input type="file" id="imagenes" multiple placeholder="Elegir archivox" />
-                    <img src="../multimedia/harry-potter/harry-1.webp" class="img-uploaded" alt="">
-                    <img src="../multimedia/harry-potter/harry-1.webp" class="img-uploaded" alt="">
-                    <img src="../multimedia/harry-potter/harry-1.webp" class="img-uploaded" alt="">
+                    <input type="file" id="imagen" placeholder="Elegir archivox" name="imagen" accept="image/*" />
+
                 </div>
                 <div class="botones">
                     <button type="submit">Agreagr producto</button>
@@ -60,6 +58,16 @@
                 </div>
             </form>
 
+
+            <% if (typeof errors !="undefined" ) { %>
+                <ul>
+                    <% errors.forEach(error=> { %>
+                        <li>
+                            <%= error.msg %>
+                        </li>
+                        <% }) %>
+                </ul>
+                <% } %>
         </section>
 
         <!-- FOOTER -->
