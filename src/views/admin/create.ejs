@@ -1,95 +1,159 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../multimedia/branding/isotype.svg" type="image/x-icon">
-    <link rel="stylesheet" href="/css/styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../multimedia/branding/isotype.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
     <title>Create</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- HEADER -->
     <%- include("../partials/admin/header-admin.ejs") %>
 
-        <section class="admin">
-            <form class="form-create" action="create" method="post" enctype="multipart/form-data">
+    <section class="admin">
+      <form
+        class="form-create"
+        action="create"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <h2 class="title-create">CREAR NUEVO ITEM</h2>
+        <div class="div-form">
+          <!-- CATEGORIAS -->
+          <label for="categoria"
+            >Categoria:
+            <input
+              name="category_name"
+              id="categoria"
+              placeholder="CATEGORIA"
+              class="select-categoria"
+              value="<%= typeof values != 'undefined' ? values.category_name : ''%>"
+            >
+            </input></label
+          >
 
-                <h2 class="title-create">CREAR NUEVO ITEM</h2>
-                <div class="div-form">
-                    <!-- CATEGORIAS -->
-                    <label for="categoria">Categoria: <select name="categoria" id="categoria" placeholder="CATEGORIA"
-                            class="select-categoria"></select></label>
+          <!-- LICENCIAS -->
+          <label for="licencia"
+            >Licencia:
+            <input
+              name="licence_name"
+              id="licencia"
+              placeholder="LICENCIA"
+              class="select-licencia"
+              value="<%= typeof values != 'undefined' ? values.licence_name : ''%>"
+            >
+            </input></label
+          >
+        </div>
+        <div class="div-form">
+          <!-- NOMBRES -->
+          <label for="nombre">Nombre del producto:</label>
+          <input
+            type="text"
+            placeholder="NOMBRE DEL PRODUCTO"
+            id="nombre"
+            name="product_name"
+            value="<%= typeof values != 'undefined' ? values.product_name : ''%>"
+          />
+        </div>
+        <!-- DESC -->
+        <input
+          name="product_description"
+          id="descripcion"
+          cols="30"
+          rows="10"
+          placeholder="Descripcion del producto"
+          value="<%= typeof values != 'undefined' ? values.product_description : ''%>"
+        ></input>
 
-                    <!-- LICENCIAS -->
-                    <label for="licencia">Licencia: <select name="licencia" id="licencia" placeholder="LICENCIA"
-                            class="select-licencia"></select></label>
+        <div class="div-form2">
+          <!-- SKU -->
+          <label for="sku"
+            >SKU:
+            <input
+              type="text"
+              id="sku"
+              placeholder="SKU"
+              class="input-sku"
+              name="product_sku"
+              value="<%= typeof values != 'undefined' ? values.product_sku : ''%>"
+          /></label>
 
-                </div>
-                <div class="div-form">
-                    <!-- NOMBRES -->
-                    <label for="nombre">Nombre del producto:</label>
-                    <input type="text" placeholder="NOMBRE DEL PRODUCTO" id="nombre" name="nombre"
-                        value="<%= typeof values != 'undefined' ? values.nombre : ''%>">
-                </div>
-                <!-- DESC -->
-                <textarea name="descripcion" id="descripcion" cols="30" rows="10"
-                    placeholder="Descripcion del producto"></textarea>
+          <!-- STOCK -->
+          <label for="stock"
+            >Stock:
+            <input
+              type="number"
+              id="stock"
+              placeholder="STOCK"
+              class="input-stock"
+              name="dues"
+              value="<%= typeof values != 'undefined' ? values.dues : ''%>"
+          /></label>
 
-                <div class="div-form2">
-                    <!-- SKU -->
-                    <label for="sku">SKU: <input type="text" id="sku" placeholder="SKU" class="input-sku"
-                            name="sku" /></label>
+          <!-- PRECIO -->
+          <label for="precio"
+            >Precio:
+            <input
+              type="number"
+              id="precio"
+              placeholder="PRECIO"
+              class="input-precio"
+              name="product_price"
+              value="<%= typeof values != 'undefined' ? values.product_price : ''%>"
+          /></label>
 
-                    <!-- STOCK -->
-                    <label for="stock">Stock: <input type="text" id="stock" placeholder="STOCK" class="input-stock"
-                            name="stock" /></label>
+          <!-- DESCUENTO -->
+          <!-- <label for="descuento">Descuento: <input type="text" id="descuento" placeholder="DESCUENTO"
+                            class="input-descuento" /></label> -->
 
-                    <!-- PRECIO -->
-                    <label for="precio">Precio: <input type="number" id="precio" placeholder="PRECIO"
-                            class="input-precio" name="precio" /></label>
+          <!-- CUOTAS -->
+          <!-- <label for="cuotas">Cuotas: <select name="cuotas" id="cuotas"></select></label> -->
+        </div>
+        <!-- imgs -->
+        <div class="imgs">
+          <label for="imagenes">Imagen 1:</label>
+          <input
+            type="text"
+            id="imagen"
+            placeholder="URL de la imagén"
+            name="img_front"
+            value="<%= typeof values != 'undefined' ? values.img_front : ''%>"
+          />
+          <label for="imagenes">Imagen 2</label>
+          <input
+            type="text"
+            id="imagen"
+            placeholder="URL de la imagén"
+            name="img_back"
+            value="<%= typeof values != 'undefined' ? values.img_back : ''%>"
+          />
+        </div>
+        <div class="botones">
+          <button type="submit">Agreagr producto</button>
+          <button type="reset">Limpiar</button>
+        </div>
+      </form>
 
-                    <!-- DESCUENTO -->
-                    <label for="descuento">Descuento: <input type="text" id="descuento" placeholder="DESCUENTO"
-                            class="input-descuento" /></label>
+      <% if (typeof errors !="undefined" ) { %>
+      <ul class="errors">
+        <p class="title-errors">Errores</p>
+        <% errors.forEach(error=> { %>
+        <li><%= error.msg %></li>
+        <% }) %>
+      </ul>
+      <% } %>
+    </section>
 
-                    <!-- CUOTAS -->
-                    <label for="cuotas">Cuotas: <select name="cuotas" id="cuotas"></select></label>
+    <!-- FOOTER -->
+    <%- include("../partials/admin/footer-admin.ejs") %>
 
-                </div>
-                <!-- imgs -->
-                <div class="imgs">
-
-                    <label for="imagenes">Imagenes:</label>
-                    <input type="file" id="imagen" placeholder="Elegir archivox" name="imagen" accept="image/*" />
-
-
-
-                </div>
-                <div class="botones">
-                    <button type="submit">Agreagr producto</button>
-                    <button type="reset">Limpiar</button>
-                </div>
-            </form>
-
-
-            <% if (typeof errors !="undefined" ) { %>
-                <ul class="errors">
-                    <p class="title-errors">Errores</p>
-                    <% errors.forEach(error=> { %>
-                        <li>
-                            <%= error.msg %>
-                        </li>
-                        <% }) %>
-                </ul>
-                <% } %>
-        </section>
-
-        <!-- FOOTER -->
-        <%- include("../partials/admin/footer-admin.ejs") %>
-
-            <script src="../js/admin.js"></script>
-</body>
-
+    <script src="../js/admin.js"></script>
+  </body>
 </html>

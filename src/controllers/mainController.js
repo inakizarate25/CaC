@@ -1,8 +1,13 @@
 const path = require("path");
-const items = require("../../data.json");
-
-const index = (req, res) => {
-  res.render(path.resolve(__dirname, "../views/main/index.ejs"), { items });
+const model = require("../models/Producto");
+const index = async (req, res) => {
+  try {
+    const items = await model.findAll();
+    res.render(path.resolve(__dirname, "../views/main/index.ejs"), { items });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
 };
 
 const contact = (req, res) => {

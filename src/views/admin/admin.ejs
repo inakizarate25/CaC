@@ -1,65 +1,70 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../multimedia/branding/isotype.svg" type="image/x-icon">
-    <link rel="stylesheet" href="/css/styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../multimedia/branding/isotype.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
     <title>Admin</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- HEADER -->
     <%- include("../partials/admin/header-admin.ejs") %>
-        <section class="admin">
-            <div class="search">
+    <section class="admin">
+      <div class="search">
+        <input
+          type="text"
+          placeholder="codigo, nombre o categoria"
+          id="search"
+        />
+      </div>
+      <div class="title">
+        <h2>LISTADO DE PRODUCTOS</h2>
+        <div>
+          <h3>AGREGAR</h3>
+          <a href="/admin/create" class="btn_create">+</a>
+        </div>
+      </div>
 
-                <input type="text" placeholder="codigo, nombre o categoria" id="search">
-            </div>
-            <div class="title">
-                <h2>LISTADO DE PRODUCTOS</h2>
-                <div>
-                    <h3>AGREGAR</h3>
-                    <button>+</button>
-                </div>
-            </div>
+      <table class="table-fill">
+        <thead>
+          <tr>
+            <th class="text-left">Id</th>
+            <th class="text-left">Codigo</th>
+            <th class="text-left">Nombre del producto</th>
+            <th class="text-left">Categoria</th>
+            <th class="text-left">Editar</th>
+          </tr>
+        </thead>
+        <tbody class="table-hover" id="table-body">
+          <% items.map((item)=>{%>
+          <tr>
+            <td class="text-left"><%= item.product_id %></td>
+            <td class="text-left"><%= item.product_sku %></td>
+            <td class="text-left"><%= item.product_name %></td>
+            <td class="text-left"><%= item.licence_name %></td>
+            <td class="text-left">
+              <a class="btn_edit" href="/admin/edit/<%= item.product_id %>"
+                >Editar</a
+              >
+            </td>
+            <td class="text-left">
+             <form action="/admin/delete/<%= item.product_id %>?_method=DELETE" method="POST">
+                <button type="submit" class="btn_delete">Eliminar</button>
+             </form>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </section>
 
-            <table class="table-fill">
-                <thead>
-                    <tr>
-                        <th class="text-left">Id</th>
-                        <th class="text-left">Codigo</th>
-                        <th class="text-left">Nombre del producto</th>
-                        <th class="text-left">Categoria</th>
-                        <th class="text-left">Editar</th>
-                    </tr>
-                </thead>
-                <tbody class="table-hover" id="table-body">
-                    <% items.map((item)=>{%>
-                        <tr>
-                            <td class="text-left">
-                                <%= item.product_id %>
-                            </td>
-                            <td class="text-left">
-                                <%= item.product_sku %>
-                            </td>
-                            <td class="text-left">
-                                <%= item.product_name %>
-                            </td>
-                            <td class="text-left">
-                                <%= item.licence_name %>
-                            </td>
-                            <td class="text-left"><button>Editar</button></td>
-                            <td class="text-left"><button>Eliminar</button></td>
-                        </tr>
-                        <% }) %>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- FOOTER -->
-        <%- include("../partials/admin/footer-admin.ejs") %>
-</body>
-
+    <!-- FOOTER -->
+    <%- include("../partials/admin/footer-admin.ejs") %>
+  </body>
 </html>

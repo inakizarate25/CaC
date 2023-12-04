@@ -168,14 +168,10 @@ body {
     height: 388px;
     overflow: hidden;
     position: relative;
-}
-
-.banner_img {
-    width: 100%;
-    height: 888px;
-    position: absolute;
-    filter: blur(3px);
-    bottom: -150px;
+    background-image: url(../multimedia/funkos-banner.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .banner_hero {
@@ -1163,13 +1159,31 @@ textarea {
 
 .imgs {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
 
+#imagen,
+#imagen2 {
+    width: 700px;
 }
 
 .img-uploaded {
     width: 120px;
+}
+
+.img-productos {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-front,
+.img-back {
+    width: 200px;
 }
 
 /* LOGIN */
@@ -1187,6 +1201,16 @@ input[type="email"] {
     width: 200px;
     height: 44px;
     border-bottom: 2px solid #FF3333;
+    font-size: 20px;
+    padding-left: 6px;
+}
+
+#descripcion {
+    width: 100%;
+    height: 280px;
+    border: 2px solid #FF3333;
+    font-size: 22px;
+    padding-left: 6px;
 }
 
 .btn-ingresar {
@@ -1228,7 +1252,9 @@ label {
     line-height: normal;
     letter-spacing: 1.28px;
 }
-
+.input[type="number"]{
+    height: 40px;
+}
 .title1 {
     color: #1F1F1F;
     text-align: right;
@@ -1268,4 +1294,37 @@ label {
 .title-errors {
     color: #FF3333;
     font-size: 24px;
+}
+
+.btn_create {
+    background-color: #FF3333;
+    color: #FFF;
+    font-size: 28px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+}
+
+.btn_edit {
+    background-color: #1D84B5;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+}
+
+.btn_delete {
+    background-color: #FF3333;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
 }
