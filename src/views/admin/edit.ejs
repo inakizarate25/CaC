@@ -67,27 +67,11 @@
                     <!-- PRECIO -->
                     <label for="precio">Precio: <input type="number" id="precio" placeholder="PRECIO"
                             class="input-precio" name="product_price" value="<%= typeof values != 'undefined' ? values.product_price : '' %>" /></label>
-
-                    <!-- DESCUENTO -->
-                    <!-- <label for="descuento">Descuento: <input type="text" id="descuento" placeholder="DESCUENTO"
-                            class="input-descuento" /></label> -->
-
-                    <!-- CUOTAS -->
-                    <!-- <label for="cuotas">Cuotas: <select name="cuotas" id="cuotas"></select></label> -->
-
                 </div>
                 <!-- imgs -->
-                <div class="imgs">
-
-                    <label for="imagenes">Imagen 1: <input type="text" id="imagen" placeholder="URL de la imagén"
-                            name="img_front" value="<%= typeof values != 'undefined' ? values.img_front : '' %>" /></label>
-
-                    <label for="imagenes">Imagen 2: <input type="text" id="imagen2" placeholder="URL de la imagén"
-                            name="img_back" value="<%= typeof values != 'undefined' ? values.img_back : '' %>" /></label>
-                    <div class="img-productos">
-                        <img src=" <%= values.img_front %>" alt="<%= values.product_name %> " class="img-front">
-                        <img src=" <%= values.img_back %>" alt=" <%= values.product_name %> " class="img-back">
-                    </div>
+                <label for="imagenes">Imagen</label>
+                <input type="file" id="img_front" name="img_front" accept="image/webp" />
+                <img src="/multimedia/uploads/producto_<%= values.product_id %>.webp" alt="<%= values.product_name %> ">
                 </div>
                 <div class="botones">
                     <button type="submit">Actualizar producto</button>

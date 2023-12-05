@@ -24,14 +24,14 @@ router.get("/create", adminController.create);
 // create
 router.post(
   "/create",
-  upload.single("imagen"),
+  upload.single("img_front"),
   validations,
   adminController.postCreate
 );
 
 // update
 router.get("/edit/:id",  adminController.edit);
-router.put("/:id",validations, adminController.update);
+router.put("/:id",upload.single("img_front"), validations, adminController.update);
 // delete
 router.delete("/delete/:id", adminController.deleteItem);
 

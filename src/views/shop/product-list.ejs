@@ -61,13 +61,14 @@
             <section class="prod_list_section" id="prod_list">
                 <% items.map((item)=> { %>
                     <a class="card" href="/shop/item/<%= item.product_id %>">
-                        <img src="<%= item.img_front %>" alt="<%= item.product_name %>">
+                        <img src="../multimedia/uploads/producto_<%= item.product_id %>.webp" alt="<%= item.product_name %>" class="card_img">
                         <h4 class="card_cat">
                             <%= item.licence_name %>
                         </h4>
                         <h3 class="card_name">
                             <%= item.product_name %>
                         </h3>
+                  
                         <span class="card_price">
                             <%= item.product_price %>
                         </span>

@@ -36,14 +36,7 @@ const Producto = sequelize.define("producto", {
     type: DataTypes.INTEGER,
     allowNull: true,
   },
-  img_front: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  img_back: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
+
 });
 
 (async () => {

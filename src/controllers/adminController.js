@@ -3,6 +3,10 @@ const path = require("path");
 const fs = require("fs");
 const { validationResult } = require("express-validator");
 const model = require("../models/Producto");
+const Producto = require("../models/Producto");
+
+
+// READ
 const admin = async (req, res) => {
   try {
     const items = await model.findAll();
@@ -16,11 +20,12 @@ const create = (req, res) => {
   res.render("admin/create");
 };
 
+// CREATE
 const postCreate = async (req, res) => {
-  console.log(req.body);
-  // const originalname = req.file.originalname;
+  console.log(req.body, req.file);
+
   const errors = validationResult(req);
-  // const buffer = req.file.buffer;
+
   if (!errors.isEmpty()) {
     return res.render("admin/create", {
       values: req.body,
@@ -28,26 +33,25 @@ const postCreate = async (req, res) => {
     });
   }
 
-  // CREATE
   try {
     const producto = await model.create(req.body);
     console.log(producto);
 
-    // if (req.file) {
-    //   console.log(req.body, req.file, buffer);
-    //   sharp(buffer)
-    //     .resize(300)
-    //     .toFile(
-    //       path.resolve(
-    //         __dirname,
-    //         `../../public/multimedia/uploads/productos/producto_${producto.id}.webp`
-    //       )
-    //     );
-    // }
+    if (req.file) {
+      sharp(req.file.buffer)
+        .resize(300)
+        .toFile(
+          path.resolve(
+            __dirname +
+            `../../../public/multimedia/uploads/producto_${producto.product_id}.webp`
+          )
+        );
+    }
+
     res.redirect("/admin");
   } catch (error) {
     console.log(error);
-    res.status(500).send(error);
+    res.send(error);
   }
 };
 const edit = async (req, res) => {
@@ -83,6 +87,16 @@ const update = async (req, res) => {
       },
     })
     console.log(count);
+    if (req.file) {
+      sharp(req.file.buffer)
+        .resize(300)
+        .toFile(
+          path.resolve(
+            __dirname + 
+            `../../../public/multimedia/uploads/producto_${req.params.id}.webp`
+          )
+        );
+    }
     res.redirect("/admin");
   } catch (error) {
     console.log(error);
@@ -98,6 +112,19 @@ const deleteItem = async (req, res) => {
       product_id: req.params.id,
     },
   });
+  if (destroyed == 1) {
+    fs.unlink(
+      path.resolve(
+        __dirname +
+        `../../../public/multimedia/uploads/producto_${req.params.id}.webp`
+      ),
+      (error) => {
+        if (error) {
+          console.log(error);
+        }
+      }
+    );
+  }
 res.redirect("/admin");
  } catch (error) {
   console.log(error);
