@@ -10,18 +10,33 @@
 </head>
 
 <body>
-    <!-- HEADER -->
-    <%- include("../partials/header.ejs") %>
 
         <section class="admin">
             <h2>INGRESAR A MI CUENTA</h2>
 
-            <form class="login-form">
-                <label for="user">Usuario: <input type="text" placeholder="Usuario"></label>
-                <label for="pass">Contraseña: <input type="password" placeholder="Contraseña"></label>
-                <div class="botones">
-                    <input type="submit" value="Ingresar" class="btn-ingresar" />
-
+            <form class="login-form" method="post" action="/auth/login">
+                <% if (typeof errors != 'undefined') { %>
+                    <ul>
+                      <% errors.forEach(error => { %>
+                      <li><%= error.msg %></li>
+                      <% }) %>
+                    </ul>
+                    <% } %>
+                <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                id="email"
+                value="<%= typeof values != 'undefined' ? values.email : '' %>"
+              />
+              <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Contraseña"
+                  autocomplete="off"
+                />
+                <button type="submit" class="btn-ingresar">Ingresar</button>
                     <label for="remember" class="remember">Recordarme: <input type="checkbox" name="remember"></label>
                 </div>
                 <a class="olvide" href="/">Olvide mi contraseña</a>
@@ -29,10 +44,7 @@
 
         </section>
 
-        <!-- FOOTER -->
-        <%- include("../partials/footer.ejs") %>
 
-            <script src="../js/admin.js"></script>
 </body>
 
 </html>
