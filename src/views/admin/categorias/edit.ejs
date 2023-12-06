@@ -31,12 +31,17 @@
 
                 <h2 class="title-create">EDITAR CATEGORIA</h2>
                 
-                <div class="div-form">
                     <!-- CATEGORIAS -->
-                    <label for="categoria">Categoria: <input type="text" name="nombre" id="categoria"
-                            placeholder="CATEGORIA" class="select-categoria"  value="<%= typeof values != 'undefined' ? values.nombre : '' %>">
+                    <label for="categoria">Categoria: <input type="text" name="category_name" id="categoria"
+                            placeholder="CATEGORIA" class="select-categoria"  value="<%= typeof values != 'undefined' ? values.category_name : '' %>">
 
                         </input></label>
+
+                   <label for="category_description">
+                       Descripción:
+                       <input type="text" name="category_description" id="category_description" value="<%= typeof values != 'undefined' ? values.category_description : '' %>">
+                   </label>     
+
 
                 <div class="botones">
                     <button type="submit">Actualizar categoria</button>

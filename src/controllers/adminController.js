@@ -22,7 +22,7 @@ const admin = async (req, res) => {
 const create = async (req, res) => {
  try {
   const categorias = await modelCategory.findAll({
-    order: [["nombre", "DESC"]],
+    order: [["category_name", "DESC"]],
   });
   res.render("admin/productos/create", { categorias });
  } catch (error) {

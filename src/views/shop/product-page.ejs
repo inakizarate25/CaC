@@ -15,14 +15,14 @@
 
         <!-- PRODUCTO -->
         <article class="product_article">
-            <img src="../multimedia/star-wars/baby-yoda-1.webp" alt="baby-yoda-1">
+            <img src="/multimedia/uploads/producto_<%= item.product_id %>.webp" alt="<%= item.product_name %>">
 
             <aside class="product_info">
-                <p class="prod_cat">STAR WARS</p>
-                <h3>BABY YODA BLUEBALL</h3>
-                <span class="prod_desc">Figura coleccionable de Baby Yoda (Grogu) - The Mandalorian Saga, edición
-                    limitada.</span>
-                <p class="product_price">$1799,99</p>
+              <p><%= item.Category.category_name %></p>
+                <h3><%= item.product_name %></h3>
+                <span class="prod_desc"><%= item.product_description %></span>
+                <p class="product_price">$<%= item.product_price %></p>
+                <p class="prod_desc"><%= item.dues %> Unidades En Stock</p>
                 <div class="prod_cant">
                     <div class="item_cant">
                         <span class="item_cant_span">2</span>
@@ -39,29 +39,7 @@
         </article>
 
         <!-- NOVEDADES -->
-        <section class="novedades">
-            <h2>ÚLTIMOS LANZAMIENTOS</h2>
-
-            <div class="novedades_div">
-
-                <% items2.map((item)=> { %>
-                    <a class="card" href="/shop/item/<%= item.product_id %>">
-                        <img src="<%= item.img_front %>" alt="<%= item.product_name %>">
-                        <h4 class="card_cat">
-                            <%= item.licence_name %>
-                        </h4>
-                        <h3 class="card_name">
-                            <%= item.product_name %>
-                        </h3>
-                        <span class="card_price">
-                            <%= item.product_price %>
-                        </span>
-                        <p class="card_cuotas">3 CUOTAS SIN INTERES</p>
-                        <p class="nuevo">NUEVO</p>
-                    </a>
-                    <% }) %>
-            </div>
-        </section>
+     
         <!-- FOOTER -->
         <%- include("../partials/footer") %>
 </body>

@@ -1,4 +1,5 @@
 const model = require("../models/Producto");
+const modelCategory = require("../models/Category");
 const shop = async (req, res) => {
   try {
     const items = await model.findAll();
@@ -16,10 +17,18 @@ const postCart = (req, res) => {
   res.send("Route for add item to cart");
 };
 const item = async (req, res) => {
+
   try {
-    const items = model.findByPk(req.params.id);
-    const items2 = await model.findAll();
-    res.render("shop/product-page", { items2 });
+    const item = await  model.findByPk(req.params.id,{
+      include: "Category",
+    });
+    console.log(item);
+    if(item){
+      const categoria = await modelCategory.findByPk(item.CategoryId);
+      res.render("shop/product-page", {item, categoria});
+    }else{
+      res.status(404).send("No existe el producto");
+    }
   } catch (error) {
     console.log(error);
     res.status(500).send(error);

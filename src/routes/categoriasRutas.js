@@ -5,7 +5,7 @@ const categoriasController = require("../controllers/categoriasController");
 const { body } = require("express-validator");
 
 const validations = [
- body("nombre")
+ body("category_name")
    .not()
    .isEmpty()
    .withMessage("La categoria es obligatoria"),

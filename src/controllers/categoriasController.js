@@ -89,7 +89,7 @@ const deletecategoria = async (req, res) => {
     },
   });
  
-res.redirect("/admin");
+res.redirect("/admin/categorias");
  } catch (error) {
   console.log(error);
   res.status(500).send(error);

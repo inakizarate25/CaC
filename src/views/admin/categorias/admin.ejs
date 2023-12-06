@@ -36,6 +36,7 @@
           <tr>
             <th class="text-left">Id</th>
             <th class="text-left">Categoria</th>
+            <th class="text-left">Descripcion</th>
             <th class="text-left">Editar</th>
           </tr>
         </thead>
@@ -43,7 +44,8 @@
           <% categorias.map((categoria)=>{%>
           <tr>
             <td class="text-left"><%= categoria.id %></td>
-            <td class="text-left"><%= categoria.nombre %></td>
+            <td class="text-left"><%= categoria.category_name %></td>
+            <td class="text-left"><%= categoria.category_description %></td>
             <td class="text-left">
               <a
                 class="btn_edit"
@@ -53,7 +55,7 @@
             </td>
             <td class="text-left">
               <form
-                action="/admin/delete/<%= categoria.id %>?_method=DELETE"
+                action="/admin/categorias/delete/<%= categoria.id %>?_method=DELETE"
                 method="POST"
                 class="form_delete"
               >
