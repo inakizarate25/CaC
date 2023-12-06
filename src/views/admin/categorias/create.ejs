@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../multimedia/branding/isotype.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Create</title>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <%- include("../../partials/admin/header-admin.ejs") %>
+
+    <section class="admin">
+      <form
+        class="form-create"
+        action="create"
+        method="post"
+      >
+        <h2 class="title-create">CREAR NUEVA CATEGORIA</h2>
+        <% if (typeof errors != 'undefined') { %>
+          <ul>
+            <% errors.forEach(error => { %>
+            <li><%= error.msg %></li>
+            <% }) %>
+          </ul>
+          <% } %>
+        <div class="div-form">
+          <!-- CATEGORIAS -->
+          <label for="categoria"
+            >Categoria:
+            <input
+              name="nombre"
+              id="categoria"
+              placeholder="CATEGORIA"
+              class="select-categoria"
+              value="<%= typeof values != 'undefined' ? values.nombre : ''%>"
+            >
+            </input></label
+          >
+
+        <div class="botones">
+          <button type="submit">Agreagar categoria</button>
+          <button type="reset">Limpiar</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- FOOTER -->
+    <%- include("../../partials/admin/footer-admin.ejs") %>
+
+    <script src="../js/admin.js"></script>
+  </body>
+</html>

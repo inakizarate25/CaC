@@ -67,7 +67,7 @@
 
                 <% items.map((item)=> { %>
                     <a class="card" href="/shop/item/<%= item.product_id %>">
-                        <img src="<%= item.img_front %>" alt="<%= item.product_name %>">
+                        <img src="../multimedia/uploads/producto_<%= item.product_id %>.webp" alt="<%= item.product_name %>">
                         <h4 class="card_cat">
                             <%= item.licence_name %>
                         </h4>

@@ -1,19 +1,14 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("./connection");
 
-const Producto = sequelize.define("producto", {
+const Category = require("./Category");
+
+
+const Product = sequelize.define("Product", {
   product_id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
-    allowNull: false,
-  },
-  licence_name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  category_name: {
-    type: DataTypes.STRING,
     allowNull: false,
   },
   product_name: {
@@ -39,8 +34,7 @@ const Producto = sequelize.define("producto", {
 
 });
 
-(async () => {
-  //   await sequelize.sync({ force: true });
-  await sequelize.sync({ alter: true });
-})();
-module.exports = Producto;
+Product.belongsTo(Category)
+
+
+module.exports = Product;

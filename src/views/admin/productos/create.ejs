@@ -14,7 +14,7 @@
 
   <body>
     <!-- HEADER -->
-    <%- include("../partials/admin/header-admin.ejs") %>
+    <%- include("../../partials/admin/header-admin.ejs") %>
 
     <section class="admin">
       <form
@@ -35,27 +35,17 @@
           <!-- CATEGORIAS -->
           <label for="categoria"
             >Categoria:
-            <input
-              name="category_name"
-              id="categoria"
-              placeholder="CATEGORIA"
-              class="select-categoria"
-              value="<%= typeof values != 'undefined' ? values.category_name : ''%>"
-            >
-            </input></label
-          >
-
-          <!-- LICENCIAS -->
-          <label for="licencia"
-            >Licencia:
-            <input
-              name="licence_name"
-              id="licencia"
-              placeholder="LICENCIA"
-              class="select-licencia"
-              value="<%= typeof values != 'undefined' ? values.licence_name : ''%>"
-            >
-            </input></label
+            <select name="CategoryId" id="CategoryId">
+              <option value=""></option>
+              <% categorias.forEach(categoria => { %>
+              <option value="<%= categoria.id %>">
+                <%= categoria.nombre %>
+              </option>
+              <% }) %>
+            </select>
+              
+              
+              </label
           >
         </div>
         <div class="div-form">
@@ -131,7 +121,7 @@
     </section>
 
     <!-- FOOTER -->
-    <%- include("../partials/admin/footer-admin.ejs") %>
+    <%- include("../../partials/admin/footer-admin.ejs") %>
 
     <script src="../js/admin.js"></script>
   </body>

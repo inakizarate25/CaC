@@ -11,7 +11,7 @@
 
 <body>
     <!-- HEADER -->
-    <%- include("../partials/admin/header-admin.ejs") %>
+    <%- include("../../partials/admin/header-admin.ejs") %>
 
         <section class="admin">
             <% if (typeof errors !="undefined" ) { %>
@@ -33,17 +33,20 @@
                 
                 <div class="div-form">
                     <!-- CATEGORIAS -->
-                    <label for="categoria">Categoria: <input type="text" name="category_name" id="categoria"
-                            placeholder="CATEGORIA" class="select-categoria"  value="<%= typeof values != 'undefined' ? values.category_name : '' %>">
-
-                        </input></label>
-
-                    <!-- LICENCIAS -->
-                    <label for="licencia">Licencia: <input type="text" name="licence_name"
-                        value="<%= typeof values != 'undefined' ? values.licence_name : '' %>">
-
-                    </label>
-
+          <label for="categoria"
+          >Categoria:
+          <select name="CategoryId" id="CategoryId">
+            <option value=""></option>
+            <% categorias.forEach(categoria => { %>
+            <option value="<%= categoria.id %>" <%= categoria.id == values.CategoryId ? 'selected' : '' %>>
+              <%= categoria.nombre %>
+            </option>
+            <% }) %>
+          </select>
+            
+            
+            </label
+        >
                 </div>
                 <div class="div-form">
                     <!-- NOMBRES -->
@@ -84,7 +87,7 @@
         </section>
 
         <!-- FOOTER -->
-        <%- include("../partials/admin/footer-admin.ejs") %>
+        <%- include("../../partials/admin/footer-admin.ejs") %>
 
 </body>
 

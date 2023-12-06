@@ -13,8 +13,11 @@ const validations = [
     .withMessage("El nombre es obligatorio"),
   // sku
   body("product_sku").not().isEmpty().withMessage("El SKU es obligatoria"),
-  // licence
-  body("licence_name").not().isEmpty().withMessage("La Licencia es obligatorio"),
+  // categoria
+  body("CategoryId")
+    .not()
+    .isEmpty()
+    .withMessage("La categoria es obligatoria"),
 ];
 
 // CRUD
