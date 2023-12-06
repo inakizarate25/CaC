@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../multimedia/branding/isotype.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>EDITAR</title>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <%- include("../../partials/admin/header-admin.ejs") %>
+
+        <section class="admin">
+            <% if (typeof errors !="undefined" ) { %>
+                <ul class="errors">
+                    <p class="title-errors">Errores</p>
+                    <% errors.forEach(error=> { %>
+                        <li>
+                            <%= error.msg %>
+                        </li>
+                        <% }) %>
+                </ul>
+                <% } %>
+            <form class="form-create" 
+                 action="/admin/licencias/<%= values.id %>?_method=PUT"
+                 method="post"
+        >
+
+                <h2 class="title-create">EDITAR licencias</h2>
+                
+                    <!-- licencias -->
+                    <label for="licencias">licencias: <input type="text" name="licence_name" id="licencias"
+                            placeholder="licencias" class="select-licencias"  value="<%= typeof values != 'undefined' ? values.licence_name : '' %>">
+
+                        </input></label>
+
+                   <label for="licence_description">
+                       Descripción:
+                       <input type="text" name="licence_description" id="licence_description" value="<%= typeof values != 'undefined' ? values.licence_description : '' %>">
+                   </label>     
+
+
+                <div class="botones">
+                    <button type="submit">Actualizar licencias</button>
+                    <button type="reset">Limpiar</button>
+                </div>
+            </form>
+
+
+          
+        </section>
+
+        <!-- FOOTER -->
+        <%- include("../../partials/admin/footer-admin.ejs") %>
+
+</body>
+
+</html>

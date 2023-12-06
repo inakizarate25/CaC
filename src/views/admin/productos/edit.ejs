@@ -24,66 +24,79 @@
                         <% }) %>
                 </ul>
                 <% } %>
-            <form class="form-create" 
-                 action="/admin/<%= values.product_id %>?_method=PUT"
-                 method="post"
-                enctype="multipart/form-data">
+                    <form class="form-create" action="/admin/<%= values.product_id %>?_method=PUT" method="post"
+                        enctype="multipart/form-data">
 
-                <h2 class="title-create">EDITAR PRODUCTO</h2>
-                
-                <div class="div-form">
-                    <!-- CATEGORIAS -->
-          <label for="categoria"
-          >Categoria:
-          <select name="CategoryId" id="CategoryId">
-            <option value=""></option>
-            <% categorias.forEach(categoria => { %>
-            <option value="<%= categoria.id %>" <%= categoria.id == values.CategoryId ? 'selected' : '' %>>
-              <%= categoria.category_name %>
-            </option>
-            <% }) %>
-          </select>
-            
-            
-            </label
-        >
-                </div>
-                <div class="div-form">
-                    <!-- NOMBRES -->
-                    <label for="nombre">Nombre del producto:</label>
-                    <input type="text" placeholder="NOMBRE DEL PRODUCTO" id="nombre" name="product_name"
-                    value="<%= typeof values != 'undefined' ? values.product_name : '' %>">
-                </div>
-                <!-- DESCRIPCION -->
-                <input type="text" name="product_description" id="descripcion" cols="30" rows="10"
-                    placeholder="Descripcion del producto"  value="<%= typeof values != 'undefined' ? values.product_description : '' %>"></input>
+                        <h2 class="title-create">EDITAR PRODUCTO</h2>
 
-                <div class="div-form2">
-                    <!-- SKU -->
-                    <label for="sku">SKU: <input type="text" id="sku" placeholder="SKU" class="input-sku"
-                            name="product_sku" value="<%= typeof values != 'undefined' ? values.product_sku : '' %>" /></label>
+                        <div class="div-form">
+                            <!-- CATEGORIAS -->
+                            <label for="categoria">Categoria:
+                                <select name="CategoryId" id="CategoryId">
+                                    <option value=""></option>
+                                    <% categorias.forEach(categoria=> { %>
+                                        <option value="<%= categoria.id %>" <%=categoria.id==values.CategoryId
+                                            ? 'selected' : '' %>>
+                                            <%= categoria.category_name %>
+                                        </option>
+                                        <% }) %>
+                                </select>
+                            </label>
 
-                    <!-- STOCK -->
-                    <label for="stock">Stock: <input type="number" id="stock" placeholder="STOCK" class="input-stock"
-                            name="dues" value="<%= typeof values != 'undefined' ? values.dues : '' %>" /></label>
+                            <!-- LICENCIAS -->
+                            <label for="licencias">Categoria:
+                                <select name="LicenceId" id="LicenceId">
+                                    <option value=""></option>
+                                    <% licencias.forEach(licencia => { %>
+                                        <option value="<%= licencia.id %>" <%=licencia.id==values.LicenceId
+                                            ? 'selected' : '' %>>
+                                            <%= licencia.licence_name %>
+                                        </option>
+                                        <% }) %>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="div-form">
+                            <!-- NOMBRES -->
+                            <label for="nombre">Nombre del producto:</label>
+                            <input type="text" placeholder="NOMBRE DEL PRODUCTO" id="nombre" name="product_name"
+                                value="<%= typeof values != 'undefined' ? values.product_name : '' %>">
+                        </div>
+                        <!-- DESCRIPCION -->
+                        <input type="text" name="product_description" id="descripcion" cols="30" rows="10"
+                            placeholder="Descripcion del producto"
+                            value="<%= typeof values != 'undefined' ? values.product_description : '' %>"></input>
 
-                    <!-- PRECIO -->
-                    <label for="precio">Precio: <input type="number" id="precio" placeholder="PRECIO"
-                            class="input-precio" name="product_price" value="<%= typeof values != 'undefined' ? values.product_price : '' %>" /></label>
-                </div>
-                <!-- imgs -->
-                <label for="imagenes">Imagen</label>
-                <input type="file" id="img_front" name="img_front" accept="image/webp" />
-                <img src="/multimedia/uploads/producto_<%= values.product_id %>.webp" alt="<%= values.product_name %> ">
-                </div>
-                <div class="botones">
-                    <button type="submit">Actualizar producto</button>
-                    <button type="reset">Limpiar</button>
-                </div>
-            </form>
+                        <div class="div-form2">
+                            <!-- SKU -->
+                            <label for="sku">SKU: <input type="text" id="sku" placeholder="SKU" class="input-sku"
+                                    name="product_sku"
+                                    value="<%= typeof values != 'undefined' ? values.product_sku : '' %>" /></label>
+
+                            <!-- STOCK -->
+                            <label for="stock">Stock: <input type="number" id="stock" placeholder="STOCK"
+                                    class="input-stock" name="dues"
+                                    value="<%= typeof values != 'undefined' ? values.dues : '' %>" /></label>
+
+                            <!-- PRECIO -->
+                            <label for="precio">Precio: <input type="number" id="precio" placeholder="PRECIO"
+                                    class="input-precio" name="product_price"
+                                    value="<%= typeof values != 'undefined' ? values.product_price : '' %>" /></label>
+                        </div>
+                        <!-- imgs -->
+                        <label for="imagenes">Imagen</label>
+                        <input type="file" id="img_front" name="img_front" accept="image/webp" />
+                        <img src="/multimedia/uploads/producto_<%= values.product_id %>.webp"
+                            alt="<%= values.product_name %> ">
+                        </div>
+                        <div class="botones">
+                            <button type="submit">Actualizar producto</button>
+                            <button type="reset">Limpiar</button>
+                        </div>
+                    </form>
 
 
-          
+
         </section>
 
         <!-- FOOTER -->

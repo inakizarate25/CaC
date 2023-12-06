@@ -33,6 +33,7 @@ const shopRoutes = require("./src/routes/shopRoutes");
 const adminRoutes = require("./src/routes/adminRoutes");
 const authRoutes = require("./src/routes/authRoutes");
 const categoriasRoutes = require("./src/routes/categoriasRutas");
+const licenciasRoutes = require("./src/routes/licenciasRoutes");
 
 app.use(express.static(path.join(__dirname, "/public")));
 
@@ -47,6 +48,7 @@ app.use("/", mainRoutes);
 app.use("/shop", shopRoutes);
 app.use("/admin", isLogin, adminRoutes);
 app.use("/admin/categorias", categoriasRoutes);
+app.use("/admin/licencias", licenciasRoutes);
 app.use("/auth", authRoutes);
 
 app.use((req, res, next) => {
@@ -56,7 +58,7 @@ app.use((req, res, next) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, async () => {
   try {
-    await sequelize.sync({alter: true});
+    await sequelize.sync({ alter: true });
   } catch (error) {
     console.log(error);
   }

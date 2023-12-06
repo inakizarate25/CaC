@@ -4,13 +4,14 @@ const fs = require("fs");
 const { validationResult } = require("express-validator");
 const model = require("../models/Producto");
 const modelCategory = require("../models/Category");
+const modelLicence = require("../models/Licences");
 
 
 // READ
 const admin = async (req, res) => {
   try {
     const items = await model.findAll({
-      include: "Category",
+      include: ["Category", "Licence"],
     });
     console.log(items);
     res.render("admin/productos/admin", { items });
@@ -24,7 +25,10 @@ const create = async (req, res) => {
   const categorias = await modelCategory.findAll({
     order: [["category_name", "DESC"]],
   });
-  res.render("admin/productos/create", { categorias });
+const licencias = await modelLicence.findAll({
+  order: [["licence_name", "DESC"]],
+})
+  res.render("admin/productos/create", { categorias, licencias });
  } catch (error) {
   console.log(error);
   res.status(500).send(error);
@@ -41,10 +45,14 @@ const postCreate = async (req, res) => {
   if (!errors.isEmpty()) {
     try {
       const categorias = await modelCategory.findAll({
-        order: [["nombre", "DESC"]],
+        order: [["category_name", "DESC"]],
       });
+      const licencias = await modelLicence.findAll({
+        order: [["licence_name", "DESC"]],
+      })
       return res.render("admin/productos/create", {
         categorias,
+        licencias,
         values: req.body,
         errors: errors.array(),
       });
@@ -87,7 +95,8 @@ const edit = async (req, res) => {
     console.log(item);
     if (item) {
       const categorias = await modelCategory.findAll()
-      res.render("admin/productos/edit", { values : item, categorias });
+      const licencias = await modelLicence.findAll()
+      res.render("admin/productos/edit", { values : item, categorias, licencias });
     } else {
       res.status(404).send("No existe el producto");
     }
@@ -105,10 +114,14 @@ const update = async (req, res) => {
     ;
     try {
       const categorias = await modelCategory.findAll({
-        order: [["nombre", "DESC"]],
+        order: [["category_name", "DESC"]],
       });
+      const licencias = await modelLicence.findAll({
+        order: [["licence_name", "DESC"]],
+      })
       return res.render("admin/productos/edit", {
         categorias,
+        licencias,
         values: req.body,
         errors: errors.array(),
       });
