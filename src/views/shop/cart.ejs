@@ -14,7 +14,6 @@
     <%- include("../partials/header") %>
 
         <section class="cart">
-            <h2>CARRITO DE COMPRAS</h2>
             <div class="cart_header">
                 <span>DETALLE DEL PRODUCTO</span>
                 <span>CANTIDAD</span>
@@ -23,31 +22,7 @@
         </section>
 
         <section class="cart_list">
-            <!-- cart_item -->
-            <div class="cart_item">
-                <div class="item_info">
-                    <img src="../multimedia/star-wars/baby-yoda-1.webp" alt="baby-yoda-1">
-
-                    <div class="info_div">
-                        <h3>BABY YODA BLUEBALL</h3>
-                        <span class="info_cat">STAR WARS</span>
-                        <span class="info_span_precio">Precio: $1799,99</span>
-                    </div>
-                </div>
-
-                <div class="item_cant">
-                    <span class="item_cant_span">2</span>
-                    <div class="cant_div">
-                        <p>+</p>
-                        <p>-</p>
-                    </div>
-                </div>
-
-                <div class="item_total">$3599,98</div>
-
-                <img src="../multimedia/icons/gg_close-o.svg" alt="delete" class="item_remove">
-            </div>
-            <!-- ---- -->
+            <h2>CARRITO DE COMPRAS</h2>
             <div class="cart_item">
                 <div class="item_info">
                     <img src="../multimedia/pokemon/pidgeotto-1.webp" alt="pidgeotto">
@@ -60,10 +35,10 @@
                 </div>
 
                 <div class="item_cant">
-                    <span class="item_cant_span">1</span>
-                    <div class="cant_div">
-                        <p>+</p>
-                        <p>-</p>
+                    <span class="item_cant_span count">0</span>
+                    <div class="cant_div">  
+                        <p class="aumentar">+</p>
+                        <p class="disminuir">-</p>
                     </div>
                 </div>
 
@@ -99,6 +74,7 @@
 
         <!-- FOOTER -->
         <%- include("../partials/footer") %>
+        <script src="/js/app.js"></script>
 </body>
 
 </html>

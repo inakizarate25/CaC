@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/multimedia/branding/isotype.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="/css/styles.css">
     <title>FunkoShop</title>
 </head>
@@ -28,8 +29,7 @@
             <!-- star wars -->
             <div class="colection">
                 <div class="colection_div">
-                    <h3>STAR WARS &</h3>
-                    <h3>THE MANDALORIAN</h3>
+                    <h3>STAR WARS & MANDALORIAN</h3>
                     <span>Disfruta de una saga que sigue agregando personajes a su colección.</span>
                     <a href="/shop">VER COLECCIÓN</a>
                 </div>
@@ -67,7 +67,7 @@
 
                 <% items.map((item)=> { %>
                     <a class="card" href="/shop/item/<%= item.product_id %>">
-                        <img src="../multimedia/uploads/producto_<%= item.product_id %>.webp" alt="<%= item.product_name %>">
+                        <img src="/multimedia/uploads/producto_<%= item.product_id %>.webp" alt="<%= item.product_name %>">
                         <h4 class="card_cat">
                             <%= item.licence_name %>
                         </h4>
@@ -87,6 +87,8 @@
 
         <!-- FOOTER -->
         <%- include("../partials/footer") %>
+
+       <script src="/js/app.js"></script>
 </body>
 
 </html>

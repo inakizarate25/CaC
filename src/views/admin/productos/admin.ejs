@@ -50,12 +50,12 @@
             <td class="text-left"><%= item.Category.category_name %></td>
             <td class="text-left">
               <a class="btn_edit" href="/admin/edit/<%= item.product_id %>"
-                >Editar</a
+                ><img src="/multimedia/icons/edit_pencil.svg" alt=""></a
               >
             </td>
             <td class="text-left">
              <form action="/admin/delete/<%= item.product_id %>?_method=DELETE" method="POST" class="form_delete">
-                <button type="submit" class="btn_delete">Eliminar</button>
+                <button type="submit" class="btn_delete"><img src="/multimedia/icons/delete_trash.svg" alt=""></button>
              </form>
             </td>
           </tr>
