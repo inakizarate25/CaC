@@ -362,16 +362,6 @@ main {
     color: var(--gray);
 }
 
-.novedades_div {
-    width: 100%;
-    max-width: 1440px;
-    overflow-x: scroll;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 50px 105px;
-    gap: 18px;
-}
 
 .card {
     width: 300px;
@@ -385,10 +375,11 @@ main {
     cursor: pointer;
 }
 
-.card>img {
+.card > img {
     width: 280px;
     align-self: center;
 }
+
 
 .nuevo {
     position: absolute;
@@ -405,23 +396,66 @@ main {
     color: var(--gray);
     font-size: var(--xsmall);
     font-weight: 500;
+    padding: .5em 0;
 }
 
 .card_name {
     color: black;
     font-size: var(--medium);
+    padding: .5em 0;
 }
 
 .card_price {
     color: var(--gray);
     font-size: var(--small);
     font-weight: 400;
+    padding: .5em 0;
 }
 
 .card_cuotas {
     color: var(--blue);
     font-size: var(--xsmall);
     font-weight: 700;
+    padding: .5em 0;
+}
+
+/*CAROUSEL*/
+
+.carousel-container {
+    width: 95%;
+    overflow-x: scroll;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5em;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+}
+
+.carousel-item {
+    display: flex;
+    width: 100%; 
+}
+
+.carousel-control {
+    cursor: pointer;
+    box-shadow: 0 0 2px 2px #0000002B;
+    padding: .5em 1em;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #595959;
+}
+    
+#prevSlide {
+    margin-left: .3em;
+}
+
+button.slick-prev.slick-arrow, button.slick-next.slick-arrow {
+    text-indent:-999px;
 }
 
 /* FOOTER */

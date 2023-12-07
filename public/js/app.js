@@ -12,9 +12,11 @@ const disminuir = document.querySelector(".disminuir");
 const count = document.querySelector(".count");
 
 aumentar.addEventListener("click", () => {
-   count.innerText++;
-
+   if (count.innerText < 10) {
+      count.innerText++;
+   }
 })
+
 disminuir.addEventListener("click", () => {
    count.innerText--;
 
