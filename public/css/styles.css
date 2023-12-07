@@ -704,13 +704,12 @@ footer>p {
     gap: 65px;
 }
 
-.product_article> {
-    height: 550px;
-    width: 550px;
+.product_article>img {
+    height: 300px;
 }
 
 .product_info {
-    width: 5767px;
+    width: 576px;
     height: 320px;
     display: flex;
     flex-direction: column;
@@ -1207,11 +1206,6 @@ textarea {
     flex-wrap: wrap;
 }
 
-.div-form2 input[type="text"] {
-    width: 100px;
-    height: 44.285px;
-    border-bottom: 2px solid #FF3333;
-}
 
 .div-form2 select {
     width: 243.034px;
@@ -1280,7 +1274,7 @@ input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="number"] {
-    width: 200px;
+    width: 210px;
     height: 44px;
     border-bottom: 2px solid #FF3333;
     font-size: 20px;
@@ -1361,9 +1355,7 @@ label {
     justify-content: space-between;
     width: 100%;
 }
-.input-sku {
-    font-size: 18px;
-}
+
 
 /* errores */
 .errors {
