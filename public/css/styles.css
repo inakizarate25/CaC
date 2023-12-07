@@ -932,11 +932,13 @@ input[type="checkbox"] {
 }
 
 .prod_list_section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-    width: 60vw;
-    place-items: center;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 24px;
+   width: 100%;
+   flex-wrap: wrap;
+   max-width: 1300px;
 }
 
 @media screen and (max-width:857px) {

@@ -59,6 +59,7 @@
             </aside> -->
             <h3>LISTA DE PRODUCTOS</h3>
             <section class="prod_list_section" id="prod_list">
+                
                 <% items.map((item)=> { %>
                     <a class="card" href="/shop/item/<%= item.product_id %>">
                         <img src="../multimedia/uploads/producto_<%= item.product_id %>.webp" alt="<%= item.product_name %>" class="card_img">
