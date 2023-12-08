@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../multimedia/branding/isotype.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Create</title>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <%- include("../../partials/admin/header-admin.ejs") %>
+
+    <section class="admin">
+      <form
+        class="form-create"
+        action="create"
+        method="post"
+      >
+        <h2 class="title-create">CREAR NUEVA LICENCIA</h2>
+        <% if (typeof errors != 'undefined') { %>
+          <ul>
+            <% errors.forEach(error => { %>
+            <li><%= error.msg %></li>
+            <% }) %>
+          </ul>
+          <% } %>
+          <!-- licencias -->
+          <label for="licencia"
+            >licencia:
+            <input
+            type="text"
+              name="licence_name"
+              id="licencia"
+              class="select-licencia"
+              value="<%= typeof values != 'undefined' ? values.licence_name : ''%>"
+            >
+            </label
+          >
+          <label for="licence_description">
+            Descripción:
+            <input type="text" name="licence_description" id="licence_description" class="select-licencia" value="<%= typeof values != 'undefined' ? values.licence_description : '' %>">
+        </label>     
+
+
+        
+
+        <div class="botones">
+          <button type="submit">Agreagar licencia</button>
+          <button type="reset">Limpiar</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- FOOTER -->
+    <%- include("../../partials/admin/footer-admin.ejs") %>
+
+    <script src="../js/admin.js"></script>
+  </body>
+</html>

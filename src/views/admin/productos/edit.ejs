@@ -41,9 +41,21 @@
                                         </option>
                                         <% }) %>
                                 </select>
-
-
                             </label>
+
+                            <!-- LICENCIAS -->
+                            <label for="licencia">Licencia:
+                                <select name="LicenceId" id="LicenceId">
+                                    <option value=""></option>
+                                    <% licencias.forEach(licencia=> { %>
+                                        <option value="<%= licencia.id %>" <%= licencia.id==values.LicenceId
+                                            ? 'selected' : '' %>>
+                                            <%= licencia.licence_name %>
+                                        </option>
+                                        <% }) %>
+                                </select>
+                            </label>
+                            
                         </div>
                         <div class="div-form">
                             <!-- NOMBRES -->
@@ -58,10 +70,9 @@
 
                         <div class="div-form2">
                             <!-- SKU -->
-                            <label for="sku">SKU:
-                                <input type="text" id="sku" placeholder="SKU" class="input-sku" name="product_sku"
-                                    value="<%= typeof values != 'undefined' ? values.product_sku : '' %>" />
-                            </label>
+                            <label for="sku">SKU: <input type="text" id="sku" placeholder="SKU" class="input-sku"
+                                    name="product_sku"
+                                    value="<%= typeof values != 'undefined' ? values.product_sku : '' %>" /></label>
 
                             <!-- STOCK -->
                             <label for="stock">Stock: <input type="number" id="stock" placeholder="STOCK"
@@ -77,7 +88,7 @@
                         <label for="imagenes">Imagen</label>
                         <input type="file" id="img_front" name="img_front" accept="image/webp" />
                         <img src="/multimedia/uploads/producto_<%= values.product_id %>.webp"
-                            alt="<%= values.product_name %> " class="imgprev">
+                            alt="<%= values.product_name %> ">
                         </div>
                         <div class="botones">
                             <button type="submit">Actualizar producto</button>

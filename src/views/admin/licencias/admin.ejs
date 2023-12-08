@@ -9,7 +9,7 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="/css/styles.css" />
-    <title>Admin</title>
+    <title>Admin licencias</title>
   </head>
 
   <body>
@@ -19,15 +19,15 @@
       <div class="search">
         <input
           type="text"
-          placeholder="codigo, nombre o categoria"
+          placeholder="codigo, nombre o licencia"
           id="search"
         />
       </div>
       <div class="title">
-        <h2>LISTADO DE PRODUCTOS</h2>
+        <h2>LISTADO DE licencias</h2>
         <div>
           <h3>AGREGAR</h3>
-          <a href="/admin/create" class="btn_create">+</a>
+          <a href="/admin/licencias/create" class="btn_create">+</a>
         </div>
       </div>
 
@@ -35,30 +35,32 @@
         <thead>
           <tr>
             <th class="text-left">Id</th>
-            <th class="text-left">Codigo</th>
-            <th class="text-left">Nombre del producto</th>
             <th class="text-left">Licencia</th>
-            <th class="text-left">Categoria</th>
+            <th class="text-left">Descripcion</th>
             <th class="text-left">Editar</th>
           </tr>
         </thead>
         <tbody class="table-hover" id="table-body">
-          <% items.map((item)=>{%>
+          <% licencias.map((licencia)=>{%>
           <tr>
-            <td class="text-left"><%= item.product_id %></td>
-            <td class="text-left"><%= item.product_sku %></td>
-            <td class="text-left"><%= item.product_name %></td>
-            <td class="text-left"><%= item.Licence.licence_name %></td>
-            <td class="text-left"><%= item.Category.category_name %></td>
+            <td class="text-left"><%= licencia.id %></td>
+            <td class="text-left"><%= licencia.licence_name %></td>
+            <td class="text-left"><%= licencia.licence_description %></td>
             <td class="text-left">
-              <a class="btn_edit" href="/admin/edit/<%= item.product_id %>"
-                ><img src="/multimedia/icons/edit_pencil.svg" alt=""></a
+              <a
+                class="btn_edit"
+                href="/admin/licencias/edit/<%= licencia.id %>"
+                >Editar</a
               >
             </td>
             <td class="text-left">
-             <form action="/admin/delete/<%= item.product_id %>?_method=DELETE" method="POST" class="form_delete">
-                <button type="submit" class="btn_delete"><img src="/multimedia/icons/delete_trash.svg" alt=""></button>
-             </form>
+              <form
+                action="/admin/licencias/delete/<%= licencia.id %>?_method=DELETE"
+                method="POST"
+                class="form_delete"
+              >
+                <button type="submit" class="btn_delete">Eliminar</button>
+              </form>
             </td>
           </tr>
           <% }) %>
@@ -68,12 +70,13 @@
 
     <!-- FOOTER -->
     <%- include("../../partials/admin/footer-admin.ejs") %>
+
     <script>
       document.addEventListener("submit", (e) => {
         if (e.target.classList.contains("form_delete")) {
           e.preventDefault();
 
-          if (confirm("¿Estas seguro de eliminar este producto?")) {
+          if (confirm("¿Estas seguro de eliminar esta licencia?")) {
             e.target.submit();
           }
         }

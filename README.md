@@ -2,5 +2,5 @@
 
 # Ruta principal
 ```
-http://localhost:3001/home
+http://localhost:3001/
 ```

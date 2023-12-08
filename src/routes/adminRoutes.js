@@ -18,6 +18,11 @@ const validations = [
     .not()
     .isEmpty()
     .withMessage("La categoria es obligatoria"),
+  // licencia
+  body("LicenceId")
+    .not()
+    .isEmpty()
+    .withMessage("La licencia es obligatoria"),
 ];
 
 // CRUD

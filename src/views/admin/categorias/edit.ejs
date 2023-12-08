@@ -24,33 +24,32 @@
                         <% }) %>
                 </ul>
                 <% } %>
-            <form class="form-create" 
-                 action="/admin/categorias/<%= values.id %>?_method=PUT"
-                 method="post"
-        >
+                    <form class="form-create" action="/admin/categorias/<%= values.id %>?_method=PUT" method="post">
 
-                <h2 class="title-create">EDITAR CATEGORIA</h2>
-                
-                    <!-- CATEGORIAS -->
-                    <label for="categoria">Categoria: <input type="text" name="category_name" id="categoria"
-                            placeholder="CATEGORIA" class="select-categoria"  value="<%= typeof values != 'undefined' ? values.category_name : '' %>">
+                        <h2 class="title-create">EDITAR CATEGORIA</h2>
 
-                        </input></label>
-
-                   <label for="category_description">
-                       Descripción:
-                       <input type="text" name="category_description" id="category_description" value="<%= typeof values != 'undefined' ? values.category_description : '' %>">
-                   </label>     
-
-
-                <div class="botones">
-                    <button type="submit">Actualizar categoria</button>
-                    <button type="reset">Limpiar</button>
-                </div>
-            </form>
+                        <!-- CATEGORIAS -->
+                        <label for="categoria">Categoria:
+                            <input type="text" name="category_name" id="categoria" 
+                                class="select-categoria"
+                                value="<%= typeof values != 'undefined' ? values.category_name : '' %>">
+                            </input>
+                        </label>
+                        <label for="category_description">
+                            Descripción:
+                            <input type="text" name="category_description" id="category_description"
+                                value="<%= typeof values != 'undefined' ? values.category_description : '' %>">
+                        </label>
 
 
-          
+                        <div class="botones">
+                            <button type="submit">Actualizar categoria</button>
+                            <button type="reset">Limpiar</button>
+                        </div>
+                    </form>
+
+
+
         </section>
 
         <!-- FOOTER -->
