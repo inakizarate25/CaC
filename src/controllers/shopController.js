@@ -45,10 +45,20 @@ const item = async (req, res) => {
       ],
     });
     console.log(item);
+    const items = await model.findAll({
+      include: [
+        {
+          association: "Category",
+        },
+        {
+          association: "Licence",
+        },
+      ],
+    })
     if(item){
       const categoria = await modelCategory.findByPk(item.CategoryId);
       const licencia = await modelLicence.findByPk(item.LicenceId);
-      res.render("shop/product-page", {item, categoria, licencia});
+      res.render("shop/product-page", {item, categoria, licencia, items});
     }else{
       res.status(404).send("No existe el producto");
     }
