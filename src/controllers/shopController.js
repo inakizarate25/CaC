@@ -1,5 +1,10 @@
 const model = require("../models/Producto");
 const modelCategory = require("../models/Category");
+
+
+
+
+
 const shop = async (req, res) => {
   try {
     const items = await model.findAll();

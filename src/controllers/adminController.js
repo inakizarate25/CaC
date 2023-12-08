@@ -4,6 +4,7 @@ const fs = require("fs");
 const { validationResult } = require("express-validator");
 const model = require("../models/Producto");
 const modelCategory = require("../models/Category");
+const modelLicence = require("../models/Licences");
 
 
 // READ
@@ -24,6 +25,7 @@ const create = async (req, res) => {
   const categorias = await modelCategory.findAll({
     order: [["category_name", "DESC"]],
   });
+
   res.render("admin/productos/create", { categorias });
  } catch (error) {
   console.log(error);
@@ -41,8 +43,9 @@ const postCreate = async (req, res) => {
   if (!errors.isEmpty()) {
     try {
       const categorias = await modelCategory.findAll({
-        order: [["nombre", "DESC"]],
+        order: [["category_name", "DESC"]],
       });
+     
       return res.render("admin/productos/create", {
         categorias,
         values: req.body,
@@ -87,7 +90,7 @@ const edit = async (req, res) => {
     console.log(item);
     if (item) {
       const categorias = await modelCategory.findAll()
-      res.render("admin/productos/edit", { values : item, categorias });
+      res.render("admin/productos/edit", { values : item, categorias});
     } else {
       res.status(404).send("No existe el producto");
     }
@@ -105,8 +108,9 @@ const update = async (req, res) => {
     ;
     try {
       const categorias = await modelCategory.findAll({
-        order: [["nombre", "DESC"]],
+        order: [["category_name", "DESC"]],
       });
+     
       return res.render("admin/productos/edit", {
         categorias,
         values: req.body,
