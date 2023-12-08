@@ -1,8 +1,23 @@
 const model = require("../models/Producto");
 const modelCategory = require("../models/Category");
+const modelLicence = require("../models/Licences");
+
+
+
+
+
 const shop = async (req, res) => {
   try {
-    const items = await model.findAll();
+    const items = await model.findAll({
+      include: [
+        {
+          association: "Category",
+        },
+        {
+          association: "Licence",
+        },
+      ],
+    });
     res.render("shop/product-list", { items });
   } catch (error) {
     console.log(error);
@@ -20,12 +35,20 @@ const item = async (req, res) => {
 
   try {
     const item = await  model.findByPk(req.params.id,{
-      include: "Category",
+      include: [
+        {
+          association: "Category",
+        },
+        {
+          association: "Licence",
+        },
+      ],
     });
     console.log(item);
     if(item){
       const categoria = await modelCategory.findByPk(item.CategoryId);
-      res.render("shop/product-page", {item, categoria});
+      const licencia = await modelLicence.findByPk(item.LicenceId);
+      res.render("shop/product-page", {item, categoria, licencia});
     }else{
       res.status(404).send("No existe el producto");
     }

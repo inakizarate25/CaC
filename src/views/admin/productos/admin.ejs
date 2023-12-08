@@ -37,6 +37,7 @@
             <th class="text-left">Id</th>
             <th class="text-left">Codigo</th>
             <th class="text-left">Nombre del producto</th>
+            <th class="text-left">Licencia</th>
             <th class="text-left">Categoria</th>
             <th class="text-left">Editar</th>
           </tr>
@@ -47,6 +48,7 @@
             <td class="text-left"><%= item.product_id %></td>
             <td class="text-left"><%= item.product_sku %></td>
             <td class="text-left"><%= item.product_name %></td>
+            <td class="text-left"><%= item.Licence.licence_name %></td>
             <td class="text-left"><%= item.Category.category_name %></td>
             <td class="text-left">
               <a class="btn_edit" href="/admin/edit/<%= item.product_id %>"

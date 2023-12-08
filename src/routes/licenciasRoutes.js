@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const licenciasController = require("../controllers/licenciasController");
+const multer = require("multer");
+const upload = multer({ storage: multer.memoryStorage() });
 
 const { body } = require("express-validator");
 
@@ -24,7 +26,8 @@ router.post(
 
 // update
 router.get("/edit/:id",  licenciasController.edit);
-router.put("/:id", validations, licenciasController.update);
+router.put("/:id",
+ validations, licenciasController.update);
 // delete
 router.delete("/delete/:id", licenciasController.deletelicencia);
 

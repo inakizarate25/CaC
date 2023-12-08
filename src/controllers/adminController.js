@@ -11,7 +11,14 @@ const modelLicence = require("../models/Licences");
 const admin = async (req, res) => {
   try {
     const items = await model.findAll({
-      include: ["Category", "Licence"],
+      include: [
+        {
+          association: "Category",
+        },
+        {
+          association: "Licence",
+        }
+      ],
     });
     console.log(items);
     res.render("admin/productos/admin", { items });
@@ -47,12 +54,12 @@ const postCreate = async (req, res) => {
       const categorias = await modelCategory.findAll({
         order: [["category_name", "DESC"]],
       });
-      const licencias = await modelLicence.findAll({
-        order: [["licence_name", "DESC"]],
-      })
+     const licencias = await modelLicence.findAll({
+       order: [["licence_name", "DESC"]],
+     });
       return res.render("admin/productos/create", {
-        categorias,
         licencias,
+        categorias,
         values: req.body,
         errors: errors.array(),
       });
@@ -116,12 +123,12 @@ const update = async (req, res) => {
       const categorias = await modelCategory.findAll({
         order: [["category_name", "DESC"]],
       });
-      const licencias = await modelLicence.findAll({
-        order: [["licence_name", "DESC"]],
-      })
+     const licencias = await modelLicence.findAll({
+       order: [["licence_name", "DESC"]],
+     })
       return res.render("admin/productos/edit", {
-        categorias,
         licencias,
+        categorias,
         values: req.body,
         errors: errors.array(),
       });

@@ -47,8 +47,8 @@ app.use( methodOverride("_method"));
 app.use("/", mainRoutes);
 app.use("/shop", shopRoutes);
 app.use("/admin", isLogin, adminRoutes);
-app.use("/admin/categorias", categoriasRoutes);
-app.use("/admin/licencias", licenciasRoutes);
+app.use("/admin/categorias", isLogin, categoriasRoutes);
+app.use("/admin/licencias", isLogin, licenciasRoutes);
 app.use("/auth", authRoutes);
 
 app.use((req, res, next) => {

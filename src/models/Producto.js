@@ -34,6 +34,10 @@ const Product = sequelize.define("Product", {
   },
 
 });
-Product.belongsTo(Category);
-Product.belongsTo(Licence);
+Product.belongsTo(Category, {
+  foreignKey: "CategoryId",
+});
+Product.belongsTo(Licence, {
+  foreignKey: "LicenceId",
+})
 module.exports = Product;

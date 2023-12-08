@@ -43,10 +43,22 @@
               </option>
               <% }) %>
             </select>
+              </label>
+
+              <!-- LICENCIAS -->
+              <label for="licencia"
+                >Licencia:
+                <select name="LicenceId" id="LicenceId">
+                  <option value=""></option>
+                  <% licencias.forEach(licencia => { %>
+                  <option value="<%= licencia.id %>">
+                    <%= licencia.licence_name %>
+                  </option>
+                  <% }) %>
+                </select>
+              </label>
+
               
-              
-              </label
-          >
         </div>
         <div class="div-form">
           <!-- NOMBRES -->

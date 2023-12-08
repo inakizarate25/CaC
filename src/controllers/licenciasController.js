@@ -18,7 +18,7 @@ const create = (req, res) => {
 
 // CREATE
 const postCreate = async (req, res) => {
-  console.log(req.body, req.file);
+  console.log(req.body);
 
   const errors = validationResult(req);
 
@@ -30,9 +30,9 @@ const postCreate = async (req, res) => {
   }
 
   try {
-    const licencias = await model.create(req.body);
-    console.log(licencias);
-
+    const licencia = await model.create(req.body);
+    console.log(licencia);
+    
     res.redirect("/admin/licencias");
   } catch (error) {
     console.log(error);
@@ -72,7 +72,7 @@ const update = async (req, res) => {
       },
     })
     console.log(count);
-
+   
     res.redirect("/admin/licencias");
   } catch (error) {
     console.log(error);
