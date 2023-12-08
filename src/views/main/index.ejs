@@ -64,6 +64,7 @@
 
      
 
+<<<<<<< HEAD
         <div class="swiffy-slider slider-item-show3 slider-item-reveal slider-item-snapstart slider-nav-dark slider-nav-outside slider-nav-autoplay slider-nav-animation-fadein slider-nav-animation-slow" data-slider-nav-autoplay-interval="2000">
           <ul class="slider-container">
             <% items.map((item)=> { %>
@@ -97,6 +98,41 @@
 
       <script src="/js/app.js"></script>
       <script src="/glide/dist/glide.min.js"></script>
+=======
+        <!-- NOVEDADES -->
+        <section class="novedades">
+            <h2>ÚLTIMOS LANZAMIENTOS</h2>
+            <div class="carousel-container">
+                <span class="carousel-control prev" id="prevSlide">❮</span>
+                <div class="carousel">
+                      <div class="carousel-item">
+                        <% items.map((item)=> { %>
+                          <a class="card" href="/shop/item/<%= item.product_id %>">
+                            <img src="/multimedia/uploads/producto_<%= item.product_id %>.webp" alt="">
+                            <h4 class="card_cat"><%= item.category_name %></h4>
+                            <h3 class="card_name"><%= item.product_name %></h3>
+                            <span class="card_price">$ <%= item.product_price %></span>
+                            <p class="card_cuotas">3 CUOTAS SIN INTERES</p>
+                            <p class="nuevo">NUEVO</p>
+                          </a>
+                        <% }) %>
+                      </div>
+                  </div>
+                  <span class="carousel-control next">❯</span>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <%- include("../partials/footer") %>
+
+       <script src="/js/app.js"></script>
+       <!-- jQuery -->
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+       <!-- Slick Carousel -->
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+       <script src="/js/carousel.js"></script>
+>>>>>>> f536dabc79016718e002a9b48045e8038c92b9b9
 </body>
 
 </html>
