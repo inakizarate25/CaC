@@ -2,93 +2,101 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/multimedia/branding/isotype.svg" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <title>FunkoShop</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="/multimedia/branding/isotype.svg" type="image/x-icon" />
+  <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/styles.css" />
+  <title>FunkoShop</title>
 </head>
 
 <body>
-    <!-- HEADER -->
-    <%- include("../partials/header") %>
-        <!-- BANNER -->
-        <section class="banner">
+  <!-- HEADER -->
+  <%- include("../partials/header") %>
+    <!-- BANNER -->
+    <section class="banner">
+      <div class="banner_hero">
+        <h2>Nuevos Ingresos</h2>
+        <span>Descubri el proximo Funko Pop de tu coleccion</span>
+        <a href="/shop">SHOP</a>
+      </div>
+    </section>
 
+    <!-- MAIN -->
+    <main>
+      <!-- star wars -->
+      <div class="colection">
+        <div class="colection_div">
+          <h3>STAR WARS & MANDALORIAN</h3>
+          <span>Disfruta de una saga que sigue agregando personajes a su
+            colección.</span>
+          <a href="/shop">VER COLECCIÓN</a>
+        </div>
+        <img src="./multimedia/star-wars/baby-yoda-1.webp" alt="baby-yoda-1" />
+      </div>
 
-            <div class="banner_hero">
-                <h2>Nuevos Ingresos</h2>
-                <span>Descubri el proximo Funko Pop de tu coleccion</span>
-                <a href="/shop">SHOP</a>
-            </div>
-        </section>
+      <!-- pokemon -->
+      <div class="colection colection_2">
+        <div class="colection_div">
+          <h3>POKEMON INDIGO</h3>
+          <span>Atrapa todos los que puedas y disfruta de una colección llena de
+            amigos.</span>
+          <a href="/shop">VER COLECCIÓN</a>
+        </div>
+        <img src="./multimedia/pokemon/vulpix-1.webp" />
+      </div>
 
-        <!-- MAIN -->
-        <main>
-            <!-- star wars -->
-            <div class="colection">
-                <div class="colection_div">
-                    <h3>STAR WARS & MANDALORIAN</h3>
-                    <span>Disfruta de una saga que sigue agregando personajes a su colección.</span>
-                    <a href="/shop">VER COLECCIÓN</a>
-                </div>
-                <img src="./multimedia/star-wars/baby-yoda-1.webp" alt="baby-yoda-1">
-            </div>
+      <!-- harry potter -->
+      <div class="colection">
+        <div class="colection_div">
+          <h3>HARRY POTTER</h3>
+          <span>Revive los recuerdos de una saga llena de magia y encanto.</span>
+          <a href="/shop">VER COLECCIÓN</a>
+        </div>
+        <img src="./multimedia/harry-potter/snape-patronus-1.webp" />
+      </div>
+    </main>
 
-            <!-- pokemon -->
-            <div class="colection colection_2">
-                <div class="colection_div">
-                    <h3>POKEMON INDIGO</h3>
-                    <span>Atrapa todos los que puedas y disfruta de una colección llena de amigos.</span>
-                    <a href="/shop">VER COLECCIÓN</a>
-                </div>
-                <img src="./multimedia/pokemon/vulpix-1.webp">
-            </div>
+    <!-- NOVEDADES -->
+    <section class="novedades">
+      <h2>ÚLTIMOS LANZAMIENTOS</h2>
 
-            <!-- harry potter -->
-            <div class="colection">
-                <div class="colection_div">
-                    <h3>HARRY POTTER</h3>
-                    <span>Revive los recuerdos de una saga llena de magia y encanto.</span>
-                    <a href="/shop">VER COLECCIÓN</a>
-                </div>
-                <img src="./multimedia/harry-potter/snape-patronus-1.webp">
-            </div>
-        </main>
+     
 
-        <!-- NOVEDADES -->
-        <section class="novedades">
-            <h2>ÚLTIMOS LANZAMIENTOS</h2>
+        <div class="swiffy-slider slider-item-show3 slider-item-reveal slider-item-snapstart slider-nav-dark slider-nav-outside slider-nav-autoplay slider-nav-animation-fadein slider-nav-animation-slow" data-slider-nav-autoplay-interval="2000">
+          <ul class="slider-container">
+            <% items.map((item)=> { %>
+              <a class="card " href="/shop/item/<%= item.product_id %>">
+    
+                    <img src="/multimedia/uploads/producto_<%= item.product_id %>.webp" alt="<%= item.product_name %>" />
+                
+                
+    
+                <h4 class="card_cat">
+                  <%= item.licence_name %>
+                </h4>
+                <h3 class="card_name">
+                  <%= item.product_name %>
+                </h3>
+                <span class="card_price">
+                  <%= item.product_price %>
+                </span>
+                <p class="card_cuotas">3 CUOTAS SIN INTERES</p>
+                <p class="nuevo">NUEVO</p>
+              </a>
+              <% }) %>
+          </ul>
+          <button type="button" class="slider-nav"></button>
+          <button type="button" class="slider-nav slider-nav-next"></button>
+        </div>
+    </section>
 
+    <!-- FOOTER -->
+    <%- include("../partials/footer") %>
 
-
-            <div class="novedades_div">
-
-                <% items.map((item)=> { %>
-                    <a class="card" href="/shop/item/<%= item.product_id %>">
-                        <img src="/multimedia/uploads/producto_<%= item.product_id %>.webp" alt="<%= item.product_name %>">
-                        <h4 class="card_cat">
-                            <%= item.licence_name %>
-                        </h4>
-                        <h3 class="card_name">
-                            <%= item.product_name %>
-                        </h3>
-                        <span class="card_price">
-                            <%= item.product_price %>
-                        </span>
-                        <p class="card_cuotas">3 CUOTAS SIN INTERES</p>
-                        <p class="nuevo">NUEVO</p>
-                    </a>
-                    <% }) %>
-            </div>
-        </section>
-
-
-        <!-- FOOTER -->
-        <%- include("../partials/footer") %>
-
-       <script src="/js/app.js"></script>
+      <script src="/js/app.js"></script>
+      <script src="/glide/dist/glide.min.js"></script>
 </body>
 
 </html>

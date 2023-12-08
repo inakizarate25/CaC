@@ -349,11 +349,12 @@ main {
 
 /* NOVEDADES */
 .novedades {
-    width: 100%;
+    width: 90vw;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 40px;
 }
 
 .novedades>h2 {
@@ -384,9 +385,12 @@ main {
     position: relative;
     cursor: pointer;
 }
-
-.card>img {
+.card > ul{
     width: 280px;
+}
+.card > ul >img {
+    width: 280px;
+    height: 280px;
     align-self: center;
 }
 
@@ -1405,4 +1409,8 @@ label {
 }
 .imgprev{
     width: 100px;
+}
+
+.nov{
+    width: 90vw;
 }

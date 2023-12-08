@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@glidejs/glide": "^3.6.0",
     "bcryptjs": "^2.4.3",
     "cookie-session": "^2.0.0",
     "dotenv": "^16.3.1",
@@ -23,7 +24,8 @@
     "multer": "^1.4.5-lts.1",
     "mysql2": "^3.6.5",
     "sequelize": "^6.35.1",
-    "sharp": "^0.32.6"
+    "sharp": "^0.32.6",
+    "swiffy-slider": "^1.6.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

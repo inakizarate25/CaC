@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../multimedia/branding/isotype.svg" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/styles.css">
     <title>Product Page</title>
 </head>
@@ -38,7 +40,38 @@
 
         </article>
 
-        <!-- NOVEDADES -->
+        <section class="novedades">
+            <h2>ÚLTIMOS LANZAMIENTOS</h2>
+      
+           
+      
+              <div class="swiffy-slider slider-item-show3 slider-item-reveal slider-item-snapstart slider-nav-dark slider-nav-outside slider-nav-autoplay slider-nav-animation-fadein slider-nav-animation-slow" data-slider-nav-autoplay-interval="2000">
+                <ul class="slider-container">
+                  <% items.map((item)=> { %>
+                    <a class="card " href="/shop/item/<%= item.product_id %>">
+          
+                          <img src="/multimedia/uploads/producto_<%= item.product_id %>.webp" alt="<%= item.product_name %>" />
+                      
+                      
+          
+                      <h4 class="card_cat">
+                        <%= item.licence_name %>
+                      </h4>
+                      <h3 class="card_name">
+                        <%= item.product_name %>
+                      </h3>
+                      <span class="card_price">
+                        <%= item.product_price %>
+                      </span>
+                      <p class="card_cuotas">3 CUOTAS SIN INTERES</p>
+                      <p class="nuevo">NUEVO</p>
+                    </a>
+                    <% }) %>
+                </ul>
+                <button type="button" class="slider-nav"></button>
+                <button type="button" class="slider-nav slider-nav-next"></button>
+              </div>
+          </section>
      
         <!-- FOOTER -->
         <%- include("../partials/footer") %>

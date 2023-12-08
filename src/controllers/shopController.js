@@ -22,10 +22,11 @@ const item = async (req, res) => {
     const item = await  model.findByPk(req.params.id,{
       include: "Category",
     });
+    const items = await model.findAll();
     console.log(item);
     if(item){
       const categoria = await modelCategory.findByPk(item.CategoryId);
-      res.render("shop/product-page", {item, categoria});
+      res.render("shop/product-page", {item, categoria, items});
     }else{
       res.status(404).send("No existe el producto");
     }
