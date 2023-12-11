@@ -25,3 +25,8 @@ disminuir.addEventListener("click", () => {
    }
 })
 
+const add = document.querySelector(".add-to-cart");
+
+add.addEventListener("click", () => {
+   alert("Añadido al carrito");
+})
