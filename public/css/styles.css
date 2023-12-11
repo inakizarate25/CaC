@@ -566,7 +566,12 @@ footer>p {
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
     border-radius: 25px;
 }
-
+@media  screen and (min-width: 680px) {
+    .cart_item {
+        width: 100%;
+    }
+    
+}
 .item_info {
     display: flex;
     align-items: center;
@@ -817,6 +822,7 @@ footer>p {
     align-items: flex-start;
     justify-content: center;
     gap: 28px;
+    margin-left: 12px;
 }
 
 .buscar {
@@ -970,9 +976,10 @@ input[type="checkbox"] {
    align-items: center;
    justify-content: center;
    gap: 24px;
-   width: 100%;
+   width: 950px;
    flex-wrap: wrap;
    max-width: 1300px;
+   margin-right: 12px;
 }
 
 @media screen and (max-width:857px) {
@@ -982,13 +989,7 @@ input[type="checkbox"] {
         gap: 100px;
     }
 
-    .prod_list_section {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 24px;
-        width: 100%;
-        place-items: center;
-    }
+  
 }
 
 /* pagination */
